@@ -76,7 +76,7 @@ module EgoiRubyClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      invalid_segment_type_validator = EnumAttributeValidator.new('String', ['You can only delete segments of type 'saved''])
+      invalid_segment_type_validator = EnumAttributeValidator.new('String', ['You can only delete segments of  type saved'])
       return false unless invalid_segment_type_validator.valid?(@invalid_segment_type)
       true
     end
@@ -84,7 +84,7 @@ module EgoiRubyClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] invalid_segment_type Object to be assigned
     def invalid_segment_type=(invalid_segment_type)
-      validator = EnumAttributeValidator.new('String', ['You can only delete segments of type 'saved''])
+      validator = EnumAttributeValidator.new('String', ['You can only delete segments of  type saved'])
       unless validator.valid?(invalid_segment_type)
         fail ArgumentError, 'invalid value for "invalid_segment_type", must be one of #{validator.allowable_values}.'
       end

@@ -35,7 +35,7 @@ describe 'InvalidSegmentTypeErrors' do
   describe 'test attribute "invalid_segment_type"' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["You can only delete segments of type 'saved'"])
+      # validator = Petstore::EnumTest::EnumAttributeValidator.new('String', ["You can only delete segments of  type saved"])
       # validator.allowable_values.each do |value|
       #   expect { @instance.invalid_segment_type = value }.not_to raise_error
       # end

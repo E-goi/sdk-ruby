@@ -11,5 +11,5 @@ OpenAPI Generator version: 3.3.4
 =end
 
 module EgoiRubyClient
-  VERSION = '1.0.0RC2'
+  VERSION = '1.0.0RC3'
 end

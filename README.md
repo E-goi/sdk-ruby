@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.0.0RC2
+#### 1.0.0RC3
 ## Installation
 
 ### Build a gem
@@ -22,15 +22,15 @@ gem build egoi-ruby-client.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./egoi-ruby-client-1.0.0RC2.gem
+gem install ./egoi-ruby-client-1.0.0RC3.gem
 ```
-(for development, run `gem install --dev ./egoi-ruby-client-1.0.0RC2.gem` to install the development dependencies)
+(for development, run `gem install --dev ./egoi-ruby-client-1.0.0RC3.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'egoi-ruby-client', '~> 1.0.0RC2'
+    gem 'egoi-ruby-client', '~> 1.0.0RC3'
 
 ### Install from Git
 
