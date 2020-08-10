@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    egoi-ruby-client (1.0.0RC3)
+    egoi-ruby-client (1.1.0RC4)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 

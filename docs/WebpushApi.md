@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**action_send_web_push**](WebpushApi.md#action_send_web_push) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
 [**create_web_push_campaign**](WebpushApi.md#create_web_push_campaign) | **POST** /campaigns/web-push | Create new webpush campaign
 [**create_web_push_rss_campaign**](WebpushApi.md#create_web_push_rss_campaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-[**get_all_web_push_sites**](WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/site | Get all webpush sites
+[**create_webpush_site**](WebpushApi.md#create_webpush_site) | **POST** /webpush/sites | Creates a webpush site
+[**get_all_web_push_sites**](WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/sites | Get all webpush sites
 [**patch_web_push_campaign**](WebpushApi.md#patch_web_push_campaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
 
 
@@ -210,6 +211,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**HashcodeCampaign**](HashcodeCampaign.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **create_webpush_site**
+> WebPushSite create_webpush_site(web_push_site)
+
+Creates a webpush site
+
+Create a new webpush site
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::WebpushApi.new
+web_push_site = EgoiRubyClient::WebPushSite.new # WebPushSite | Parameters for the webpush site
+
+begin
+  #Creates a webpush site
+  result = api_instance.create_webpush_site(web_push_site)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling WebpushApi->create_webpush_site: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **web_push_site** | [**WebPushSite**](WebPushSite.md)| Parameters for the webpush site | 
+
+### Return type
+
+[**WebPushSite**](WebPushSite.md)
 
 ### Authorization
 

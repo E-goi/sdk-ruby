@@ -4,9 +4,12 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**action_activate_contacts**](ContactsApi.md#action_activate_contacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
 [**action_attach_tag**](ContactsApi.md#action_attach_tag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+[**action_deactivate_contacts**](ContactsApi.md#action_deactivate_contacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
 [**action_detach_tag**](ContactsApi.md#action_detach_tag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 [**action_export_contacts**](ContactsApi.md#action_export_contacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+[**action_forget_contacts**](ContactsApi.md#action_forget_contacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
 [**action_import_bulk**](ContactsApi.md#action_import_bulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 [**action_start_automation**](ContactsApi.md#action_start_automation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 [**action_unsubscribe_contact**](ContactsApi.md#action_unsubscribe_contact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
@@ -15,6 +18,61 @@ Method | HTTP request | Description
 [**get_all_contacts**](ContactsApi.md#get_all_contacts) | **GET** /lists/{list_id}/contacts | Get all contacts
 [**get_contact**](ContactsApi.md#get_contact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**patch_contact**](ContactsApi.md#patch_contact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+[**search_contacts**](ContactsApi.md#search_contacts) | **GET** /contacts/search | Search contact
+
+
+# **action_activate_contacts**
+> AcceptedResponse action_activate_contacts(list_id, activate_contacts_request)
+
+Activate contacts
+
+Activates a collection of contacts (does not apply to removed contacts)
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+list_id = 56 # Integer | ID of the List
+activate_contacts_request = EgoiRubyClient::ActivateContactsRequest.new # ActivateContactsRequest | Parameters for the request
+
+begin
+  #Activate contacts
+  result = api_instance.action_activate_contacts(list_id, activate_contacts_request)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling ContactsApi->action_activate_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **Integer**| ID of the List | 
+ **activate_contacts_request** | [**ActivateContactsRequest**](ActivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **action_attach_tag**
@@ -59,6 +117,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AttachTagResponse**](AttachTagResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **action_deactivate_contacts**
+> AcceptedResponse action_deactivate_contacts(list_id, deactivate_contacts_request)
+
+Deactivate contacts
+
+Deactivates a collection of contacts (does not apply to removed contacts)
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+list_id = 56 # Integer | ID of the List
+deactivate_contacts_request = EgoiRubyClient::DeactivateContactsRequest.new # DeactivateContactsRequest | Parameters for the request
+
+begin
+  #Deactivate contacts
+  result = api_instance.action_deactivate_contacts(list_id, deactivate_contacts_request)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling ContactsApi->action_deactivate_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **Integer**| ID of the List | 
+ **deactivate_contacts_request** | [**DeactivateContactsRequest**](DeactivateContactsRequest.md)| Parameters for the request | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
 
 ### Authorization
 
@@ -179,12 +291,66 @@ Name | Type | Description  | Notes
 
 
 
+# **action_forget_contacts**
+> AcceptedResponse action_forget_contacts(list_id, contact_forget_request)
+
+Forget contacts
+
+Forgets a list of contacts to the desired callback url
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+list_id = 56 # Integer | ID of the List
+contact_forget_request = EgoiRubyClient::ContactForgetRequest.new # ContactForgetRequest | Parameters for the action
+
+begin
+  #Forget contacts
+  result = api_instance.action_forget_contacts(list_id, contact_forget_request)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling ContactsApi->action_forget_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **Integer**| ID of the List | 
+ **contact_forget_request** | [**ContactForgetRequest**](ContactForgetRequest.md)| Parameters for the action | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
 # **action_import_bulk**
 > AcceptedResponse action_import_bulk(list_id, import_bulk_request)
 
 Import collection of contacts
 
-Imports a collection of contacts
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
 
 ### Example
 ```ruby
@@ -482,7 +648,8 @@ api_instance = EgoiRubyClient::ContactsApi.new
 list_id = 56 # Integer | ID of the List
 opts = {
   offset: 56, # Integer | Element offset (starting at zero for the first element)
-  limit: 10 # Integer | Number of items to return
+  limit: 10, # Integer | Number of items to return
+  email: 'email_example' # String | Email of the contacts to return
 }
 
 begin
@@ -501,6 +668,7 @@ Name | Type | Description  | Notes
  **list_id** | **Integer**| ID of the List | 
  **offset** | **Integer**| Element offset (starting at zero for the first element) | [optional] 
  **limit** | **Integer**| Number of items to return | [optional] [default to 10]
+ **email** | **String**| Email of the contacts to return | [optional] 
 
 ### Return type
 
@@ -623,6 +791,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **search_contacts**
+> InlineResponse200 search_contacts(contact, opts)
+
+Search contact
+
+Searches a contact across all lists and returns a collection of contacts found
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+contact = 'contact_example' # String | Contact to search
+opts = {
+  type: 'email' # String | Type of contact to search (defaults to 'email')
+}
+
+begin
+  #Search contact
+  result = api_instance.search_contacts(contact, opts)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling ContactsApi->search_contacts: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **contact** | **String**| Contact to search | 
+ **type** | **String**| Type of contact to search (defaults to &#39;email&#39;) | [optional] [default to &#39;email&#39;]
+
+### Return type
+
+[**InlineResponse200**](InlineResponse200.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

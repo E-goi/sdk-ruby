@@ -1,7 +1,7 @@
 =begin
 #APIv3 (Beta)
 
-# # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  <security-definitions/>
+# # Introduction Just a quick peek!!! This is our new version of API. Remember, it is not stable yet!!! But we invite you play with it and give us your feedback ;) # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB. <security-definitions/>
 
 OpenAPI spec version: 3.0.0-beta
 
@@ -17,18 +17,25 @@ module EgoiRubyClient
   class WebPushSite
     attr_accessor :site_id
 
-    # Name of the tag
+    # Webpush site
+    attr_accessor :site
+
     attr_accessor :list_id
 
     # App code
     attr_accessor :app_code
 
+    # Webpush name
+    attr_accessor :name
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'site_id' => :'site_id',
+        :'site' => :'site',
         :'list_id' => :'list_id',
-        :'app_code' => :'app_code'
+        :'app_code' => :'app_code',
+        :'name' => :'name'
       }
     end
 
@@ -36,8 +43,10 @@ module EgoiRubyClient
     def self.openapi_types
       {
         :'site_id' => :'Integer',
-        :'list_id' => :'String',
-        :'app_code' => :'String'
+        :'site' => :'String',
+        :'list_id' => :'Integer',
+        :'app_code' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -53,12 +62,20 @@ module EgoiRubyClient
         self.site_id = attributes[:'site_id']
       end
 
+      if attributes.has_key?(:'site')
+        self.site = attributes[:'site']
+      end
+
       if attributes.has_key?(:'list_id')
         self.list_id = attributes[:'list_id']
       end
 
       if attributes.has_key?(:'app_code')
         self.app_code = attributes[:'app_code']
+      end
+
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
     end
 
@@ -70,6 +87,10 @@ module EgoiRubyClient
         invalid_properties.push('invalid value for "site_id", must be greater than or equal to 1.')
       end
 
+      if !@list_id.nil? && @list_id < 1
+        invalid_properties.push('invalid value for "list_id", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -77,6 +98,7 @@ module EgoiRubyClient
     # @return true if the model is valid
     def valid?
       return false if !@site_id.nil? && @site_id < 1
+      return false if !@list_id.nil? && @list_id < 1
       true
     end
 
@@ -90,14 +112,26 @@ module EgoiRubyClient
       @site_id = site_id
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] list_id Value to be assigned
+    def list_id=(list_id)
+      if !list_id.nil? && list_id < 1
+        fail ArgumentError, 'invalid value for "list_id", must be greater than or equal to 1.'
+      end
+
+      @list_id = list_id
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
           site_id == o.site_id &&
+          site == o.site &&
           list_id == o.list_id &&
-          app_code == o.app_code
+          app_code == o.app_code &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -109,7 +143,7 @@ module EgoiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [site_id, list_id, app_code].hash
+      [site_id, site, list_id, app_code, name].hash
     end
 
     # Builds the object from hash

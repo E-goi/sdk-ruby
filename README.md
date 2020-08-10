@@ -8,7 +8,7 @@ The API describes each available method. Learn about parameters, errors, and how
 If you find a bug or something worth fixing, create an issue.
 
 ### Changelog
-#### 1.0.0RC3
+#### 1.1.0RC4
 ## Installation
 
 ### Build a gem
@@ -22,15 +22,15 @@ gem build egoi-ruby-client.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./egoi-ruby-client-1.0.0RC3.gem
+gem install ./egoi-ruby-client-1.1.0RC4.gem
 ```
-(for development, run `gem install --dev ./egoi-ruby-client-1.0.0RC3.gem` to install the development dependencies)
+(for development, run `gem install --dev ./egoi-ruby-client-1.1.0RC4.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'egoi-ruby-client', '~> 1.0.0RC3'
+    gem 'egoi-ruby-client', '~> 1.1.0RC4'
 
 ### Install from Git
 
@@ -70,6 +70,7 @@ Class | Method | HTTP request | Description
 *EgoiRubyClient::AdvancedReportsApi* | [**get_all_advanced_reports**](docs/AdvancedReportsApi.md#get_all_advanced_reports) | **GET** /reports/advanced | Get all advanced reports
 *EgoiRubyClient::AutomationsApi* | [**delete_automation**](docs/AutomationsApi.md#delete_automation) | **DELETE** /automations/{automation_id} | Remove automation
 *EgoiRubyClient::AutomationsApi* | [**get_all_automations**](docs/AutomationsApi.md#get_all_automations) | **GET** /automations | Get all automations
+*EgoiRubyClient::CNamesApi* | [**create_c_name**](docs/CNamesApi.md#create_c_name) | **POST** /cnames | Create cname
 *EgoiRubyClient::CNamesApi* | [**get_all_c_names**](docs/CNamesApi.md#get_all_c_names) | **GET** /cnames | Get All CNames
 *EgoiRubyClient::CampaignGroupsApi* | [**create_campaign_group**](docs/CampaignGroupsApi.md#create_campaign_group) | **POST** /campaign-groups | Create new campaign group
 *EgoiRubyClient::CampaignGroupsApi* | [**delete_campaign_group**](docs/CampaignGroupsApi.md#delete_campaign_group) | **DELETE** /campaign-groups/{group_id} | Remove Campaign Group
@@ -77,9 +78,12 @@ Class | Method | HTTP request | Description
 *EgoiRubyClient::CampaignGroupsApi* | [**update_campaign_group**](docs/CampaignGroupsApi.md#update_campaign_group) | **PUT** /campaign-groups/{group_id} | Update a specific campaign group
 *EgoiRubyClient::CampaignsApi* | [**delete_campaigns**](docs/CampaignsApi.md#delete_campaigns) | **DELETE** /campaigns/{campaign_hash} | Remove Campaign
 *EgoiRubyClient::CampaignsApi* | [**get_all_campaigns**](docs/CampaignsApi.md#get_all_campaigns) | **GET** /campaigns | Get all Campaigns
+*EgoiRubyClient::ContactsApi* | [**action_activate_contacts**](docs/ContactsApi.md#action_activate_contacts) | **POST** /lists/{list_id}/contacts/actions/activate | Activate contacts
 *EgoiRubyClient::ContactsApi* | [**action_attach_tag**](docs/ContactsApi.md#action_attach_tag) | **POST** /lists/{list_id}/contacts/actions/attach-tag | Attach tag to contact
+*EgoiRubyClient::ContactsApi* | [**action_deactivate_contacts**](docs/ContactsApi.md#action_deactivate_contacts) | **POST** /lists/{list_id}/contacts/actions/deactivate | Deactivate contacts
 *EgoiRubyClient::ContactsApi* | [**action_detach_tag**](docs/ContactsApi.md#action_detach_tag) | **POST** /lists/{list_id}/contacts/actions/detach-tag | Detach tag to contact
 *EgoiRubyClient::ContactsApi* | [**action_export_contacts**](docs/ContactsApi.md#action_export_contacts) | **POST** /lists/{list_id}/contacts/actions/export | Exports a list of contacts
+*EgoiRubyClient::ContactsApi* | [**action_forget_contacts**](docs/ContactsApi.md#action_forget_contacts) | **POST** /lists/{list_id}/contacts/actions/forget | Forget contacts
 *EgoiRubyClient::ContactsApi* | [**action_import_bulk**](docs/ContactsApi.md#action_import_bulk) | **POST** /lists/{list_id}/contacts/actions/import-bulk | Import collection of contacts
 *EgoiRubyClient::ContactsApi* | [**action_start_automation**](docs/ContactsApi.md#action_start_automation) | **POST** /lists/{list_id}/contacts/actions/start-automation | Start automation
 *EgoiRubyClient::ContactsApi* | [**action_unsubscribe_contact**](docs/ContactsApi.md#action_unsubscribe_contact) | **POST** /lists/{list_id}/contacts/actions/unsubscribe | Unsubscribes contacts
@@ -88,6 +92,7 @@ Class | Method | HTTP request | Description
 *EgoiRubyClient::ContactsApi* | [**get_all_contacts**](docs/ContactsApi.md#get_all_contacts) | **GET** /lists/{list_id}/contacts | Get all contacts
 *EgoiRubyClient::ContactsApi* | [**get_contact**](docs/ContactsApi.md#get_contact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 *EgoiRubyClient::ContactsApi* | [**patch_contact**](docs/ContactsApi.md#patch_contact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
+*EgoiRubyClient::ContactsApi* | [**search_contacts**](docs/ContactsApi.md#search_contacts) | **GET** /contacts/search | Search contact
 *EgoiRubyClient::EcommerceApi* | [**create_catalog**](docs/EcommerceApi.md#create_catalog) | **POST** /catalogs | Create new catalog
 *EgoiRubyClient::EcommerceApi* | [**create_product**](docs/EcommerceApi.md#create_product) | **POST** /catalogs/{catalog_id}/products | Create new product
 *EgoiRubyClient::EcommerceApi* | [**delete_catalog**](docs/EcommerceApi.md#delete_catalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog
@@ -95,6 +100,7 @@ Class | Method | HTTP request | Description
 *EgoiRubyClient::EcommerceApi* | [**get_all_catalogs**](docs/EcommerceApi.md#get_all_catalogs) | **GET** /catalogs | Get all catalogs
 *EgoiRubyClient::EcommerceApi* | [**get_all_products**](docs/EcommerceApi.md#get_all_products) | **GET** /catalogs/{catalog_id}/products | Get all products
 *EgoiRubyClient::EcommerceApi* | [**get_product**](docs/EcommerceApi.md#get_product) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
+*EgoiRubyClient::EcommerceApi* | [**import_orders_bulk**](docs/EcommerceApi.md#import_orders_bulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
 *EgoiRubyClient::EcommerceApi* | [**import_products**](docs/EcommerceApi.md#import_products) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
 *EgoiRubyClient::EcommerceApi* | [**update_product**](docs/EcommerceApi.md#update_product) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
 *EgoiRubyClient::EmailApi* | [**action_enable_email_rss**](docs/EmailApi.md#action_enable_email_rss) | **POST** /campaigns/email/rss/{campaign_hash}/actions/enable | Enables a rss email campaign
@@ -158,11 +164,15 @@ Class | Method | HTTP request | Description
 *EgoiRubyClient::VoiceApi* | [**action_send_voice**](docs/VoiceApi.md#action_send_voice) | **POST** /campaigns/voice/{campaign_hash}/actions/send | Send voice message
 *EgoiRubyClient::VoiceApi* | [**create_voice_campaign**](docs/VoiceApi.md#create_voice_campaign) | **POST** /campaigns/voice | Create new voice campaign
 *EgoiRubyClient::VoiceApi* | [**patch_voice_campaign**](docs/VoiceApi.md#patch_voice_campaign) | **PATCH** /campaigns/voice/{campaign_hash} | Update a specific voice campaign
+*EgoiRubyClient::WebHooksApi* | [**create_webhook**](docs/WebHooksApi.md#create_webhook) | **POST** /webhooks | Create new webhook
+*EgoiRubyClient::WebHooksApi* | [**delete_webhook**](docs/WebHooksApi.md#delete_webhook) | **DELETE** /webhooks/{webhook_id} | Remove webhook
+*EgoiRubyClient::WebHooksApi* | [**get_all_webhooks**](docs/WebHooksApi.md#get_all_webhooks) | **GET** /webhooks | Get all webhooks
 *EgoiRubyClient::WebpushApi* | [**action_enable_web_push_rss**](docs/WebpushApi.md#action_enable_web_push_rss) | **POST** /campaigns/webpush/rss/{campaign_hash}/actions/enable | Enable a rss webpush campaign
 *EgoiRubyClient::WebpushApi* | [**action_send_web_push**](docs/WebpushApi.md#action_send_web_push) | **POST** /campaigns/web-push/{campaign_hash}/actions/send | Send webpush message
 *EgoiRubyClient::WebpushApi* | [**create_web_push_campaign**](docs/WebpushApi.md#create_web_push_campaign) | **POST** /campaigns/web-push | Create new webpush campaign
 *EgoiRubyClient::WebpushApi* | [**create_web_push_rss_campaign**](docs/WebpushApi.md#create_web_push_rss_campaign) | **POST** /campaigns/webpush/rss | Create new webpush rss campaign
-*EgoiRubyClient::WebpushApi* | [**get_all_web_push_sites**](docs/WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/site | Get all webpush sites
+*EgoiRubyClient::WebpushApi* | [**create_webpush_site**](docs/WebpushApi.md#create_webpush_site) | **POST** /webpush/sites | Creates a webpush site
+*EgoiRubyClient::WebpushApi* | [**get_all_web_push_sites**](docs/WebpushApi.md#get_all_web_push_sites) | **GET** /webpush/sites | Get all webpush sites
 *EgoiRubyClient::WebpushApi* | [**patch_web_push_campaign**](docs/WebpushApi.md#patch_web_push_campaign) | **PATCH** /campaigns/web-push/{campaign_hash} | Update a specific webpush campaign
 
 
@@ -176,6 +186,9 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::AbstractSendEmail](docs/AbstractSendEmail.md)
  - [EgoiRubyClient::AbstractSendVoice](docs/AbstractSendVoice.md)
  - [EgoiRubyClient::AcceptedResponse](docs/AcceptedResponse.md)
+ - [EgoiRubyClient::ActivateContactsAll](docs/ActivateContactsAll.md)
+ - [EgoiRubyClient::ActivateContactsMany](docs/ActivateContactsMany.md)
+ - [EgoiRubyClient::ActivateContactsRequest](docs/ActivateContactsRequest.md)
  - [EgoiRubyClient::ActivityCollection](docs/ActivityCollection.md)
  - [EgoiRubyClient::AdvancedReport](docs/AdvancedReport.md)
  - [EgoiRubyClient::AdvancedReportCampaignsObject](docs/AdvancedReportCampaignsObject.md)
@@ -264,6 +277,8 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::CatalogPostRequest](docs/CatalogPostRequest.md)
  - [EgoiRubyClient::CellphoneSender](docs/CellphoneSender.md)
  - [EgoiRubyClient::CellphoneSenderCollection](docs/CellphoneSenderCollection.md)
+ - [EgoiRubyClient::CnameExists](docs/CnameExists.md)
+ - [EgoiRubyClient::CnameExistsErrors](docs/CnameExistsErrors.md)
  - [EgoiRubyClient::ComplexContact](docs/ComplexContact.md)
  - [EgoiRubyClient::ComplexField](docs/ComplexField.md)
  - [EgoiRubyClient::ComplexList](docs/ComplexList.md)
@@ -301,9 +316,11 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::ContactExtraFieldsBulk](docs/ContactExtraFieldsBulk.md)
  - [EgoiRubyClient::ContactExtraFieldsBulkSchema](docs/ContactExtraFieldsBulkSchema.md)
  - [EgoiRubyClient::ContactExtraFieldsSchema](docs/ContactExtraFieldsSchema.md)
+ - [EgoiRubyClient::ContactForgetRequest](docs/ContactForgetRequest.md)
  - [EgoiRubyClient::ContactInsideBase](docs/ContactInsideBase.md)
  - [EgoiRubyClient::ContactInsideBaseBulk](docs/ContactInsideBaseBulk.md)
  - [EgoiRubyClient::ContactOtherActivity](docs/ContactOtherActivity.md)
+ - [EgoiRubyClient::ContactSearchResponse](docs/ContactSearchResponse.md)
  - [EgoiRubyClient::ContactStatusFieldsBulkSchema](docs/ContactStatusFieldsBulkSchema.md)
  - [EgoiRubyClient::ContactStatusFieldsSchema](docs/ContactStatusFieldsSchema.md)
  - [EgoiRubyClient::ContactTags](docs/ContactTags.md)
@@ -315,6 +332,9 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::Country](docs/Country.md)
  - [EgoiRubyClient::CountryCollection](docs/CountryCollection.md)
  - [EgoiRubyClient::CreateContactResponse](docs/CreateContactResponse.md)
+ - [EgoiRubyClient::DeactivateContactsAll](docs/DeactivateContactsAll.md)
+ - [EgoiRubyClient::DeactivateContactsMany](docs/DeactivateContactsMany.md)
+ - [EgoiRubyClient::DeactivateContactsRequest](docs/DeactivateContactsRequest.md)
  - [EgoiRubyClient::DeleteCampaignsConflict](docs/DeleteCampaignsConflict.md)
  - [EgoiRubyClient::DeleteFieldsConflict](docs/DeleteFieldsConflict.md)
  - [EgoiRubyClient::DeleteListsConflict](docs/DeleteListsConflict.md)
@@ -383,7 +403,10 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::HeaderFooterHeaderLinks](docs/HeaderFooterHeaderLinks.md)
  - [EgoiRubyClient::HeaderFooterTemplate](docs/HeaderFooterTemplate.md)
  - [EgoiRubyClient::ImportBulkRequest](docs/ImportBulkRequest.md)
+ - [EgoiRubyClient::ImportOrdersBulkBulkRequest](docs/ImportOrdersBulkBulkRequest.md)
+ - [EgoiRubyClient::ImportOrdersBulkBulkRequestItems](docs/ImportOrdersBulkBulkRequestItems.md)
  - [EgoiRubyClient::InlineObject](docs/InlineObject.md)
+ - [EgoiRubyClient::InlineResponse200](docs/InlineResponse200.md)
  - [EgoiRubyClient::InternalServerError](docs/InternalServerError.md)
  - [EgoiRubyClient::InvalidSegmentType](docs/InvalidSegmentType.md)
  - [EgoiRubyClient::InvalidSegmentTypeErrors](docs/InvalidSegmentTypeErrors.md)
@@ -396,6 +419,7 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::LimitSpeedActionSend](docs/LimitSpeedActionSend.md)
  - [EgoiRubyClient::List](docs/List.md)
  - [EgoiRubyClient::ListCollection](docs/ListCollection.md)
+ - [EgoiRubyClient::ListCollection1](docs/ListCollection1.md)
  - [EgoiRubyClient::ListLimitReached](docs/ListLimitReached.md)
  - [EgoiRubyClient::ListLimitReachedErrors](docs/ListLimitReachedErrors.md)
  - [EgoiRubyClient::MessageWebPush](docs/MessageWebPush.md)
@@ -405,6 +429,8 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::ModuleInfoModuleInfo](docs/ModuleInfoModuleInfo.md)
  - [EgoiRubyClient::ModuleInfoModuleInfoTe](docs/ModuleInfoModuleInfoTe.md)
  - [EgoiRubyClient::MyAccount](docs/MyAccount.md)
+ - [EgoiRubyClient::NameAlreadyExists](docs/NameAlreadyExists.md)
+ - [EgoiRubyClient::NameAlreadyExistsErrors](docs/NameAlreadyExistsErrors.md)
  - [EgoiRubyClient::NotFound](docs/NotFound.md)
  - [EgoiRubyClient::NotifyUserIdArrayActionSend](docs/NotifyUserIdArrayActionSend.md)
  - [EgoiRubyClient::Now](docs/Now.md)
@@ -430,10 +456,12 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::Ping](docs/Ping.md)
  - [EgoiRubyClient::PlanInfo](docs/PlanInfo.md)
  - [EgoiRubyClient::PlanInfoPlanInfo](docs/PlanInfoPlanInfo.md)
+ - [EgoiRubyClient::PostCNameConflict](docs/PostCNameConflict.md)
  - [EgoiRubyClient::PostContactsConflict](docs/PostContactsConflict.md)
  - [EgoiRubyClient::PostListsConflict](docs/PostListsConflict.md)
  - [EgoiRubyClient::PostProductsConflict](docs/PostProductsConflict.md)
  - [EgoiRubyClient::PostRequestList](docs/PostRequestList.md)
+ - [EgoiRubyClient::PostWebpushSiteConflict](docs/PostWebpushSiteConflict.md)
  - [EgoiRubyClient::Product](docs/Product.md)
  - [EgoiRubyClient::ProductAlreadyExists](docs/ProductAlreadyExists.md)
  - [EgoiRubyClient::ProductAlreadyExistsErrors](docs/ProductAlreadyExistsErrors.md)
@@ -528,6 +556,8 @@ Class | Method | HTTP request | Description
  - [EgoiRubyClient::WebPushRssCampaign](docs/WebPushRssCampaign.md)
  - [EgoiRubyClient::WebPushSite](docs/WebPushSite.md)
  - [EgoiRubyClient::WebPushStats](docs/WebPushStats.md)
+ - [EgoiRubyClient::Webhook](docs/Webhook.md)
+ - [EgoiRubyClient::WebhookActionSchema](docs/WebhookActionSchema.md)
 
 
 ## Documentation for Authorization
