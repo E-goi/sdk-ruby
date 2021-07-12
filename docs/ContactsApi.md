@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**create_contact**](ContactsApi.md#create_contact) | **POST** /lists/{list_id}/contacts | Create new contact
 [**get_all_contact_activities**](ContactsApi.md#get_all_contact_activities) | **GET** /lists/{list_id}/contacts/{contact_id}/activities | Get all contact activities
 [**get_all_contacts**](ContactsApi.md#get_all_contacts) | **GET** /lists/{list_id}/contacts | Get all contacts
+[**get_all_contacts_by_segment**](ContactsApi.md#get_all_contacts_by_segment) | **GET** /lists/{list_id}/contacts/segment/{segment_id} | Get all contacts by Segment Id
 [**get_contact**](ContactsApi.md#get_contact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact
 [**patch_contact**](ContactsApi.md#patch_contact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact
 [**search_contacts**](ContactsApi.md#search_contacts) | **GET** /contacts/search | Search contact
@@ -80,7 +81,7 @@ Name | Type | Description  | Notes
 
 Attach tag to contact
 
-Attaches a tag to the provided contacts
+Attaches a tag to the provided contacts. <br>***Note:***<br> If you provide the array of **contacts** there will be a maximum limit of 1000 contacts in the payload, but if you provide a **segment_id** instead of     the array of contacts you will get an asynchronous response with the status code 202
 
 ### Example
 ```ruby
@@ -350,7 +351,7 @@ Name | Type | Description  | Notes
 
 Import collection of contacts
 
-Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')
+Imports a collection of contacts </br>      **DISCLAIMER:** stream limits applied. [view here](#section/Stream-Limits 'Stream Limits')<br> ***Note:*** minimum of 2 contacts to use this method. [use Create new contact method instead](#operation/createContact 'Create new contact')
 
 ### Example
 ```ruby
@@ -649,7 +650,17 @@ list_id = 56 # Integer | ID of the List
 opts = {
   offset: 56, # Integer | Element offset (starting at zero for the first element)
   limit: 10, # Integer | Number of items to return
-  email: 'email_example' # String | Email of the contacts to return
+  first_name: 'first_name_example', # String | First name of the contacts to return
+  last_name: 'last_name_example', # String | Last name of the contacts to return
+  email: 'email_example', # String | Email of the contacts to return
+  email_status: true, # BOOLEAN | EmailStatus of the contacts to return
+  cellphone: 'cellphone_example', # String | Cellphone of the contacts to return
+  cellphone_status: true, # BOOLEAN | CellphoneStatus of the contacts to return
+  phone: 'phone_example', # String | Phone of the contacts to return
+  phone_status: true, # BOOLEAN | PhoneStatus of the contacts to return
+  birth_date: Date.parse('2013-10-20'), # Date | Birth date of the contacts to return
+  language: 'language_example', # String | Language date of the contacts to return
+  extra_field_id: ['extra_field_id_example'] # Array<String> | Extra field of contacts, extra_field_id[field_id]=value
 }
 
 begin
@@ -668,7 +679,79 @@ Name | Type | Description  | Notes
  **list_id** | **Integer**| ID of the List | 
  **offset** | **Integer**| Element offset (starting at zero for the first element) | [optional] 
  **limit** | **Integer**| Number of items to return | [optional] [default to 10]
+ **first_name** | **String**| First name of the contacts to return | [optional] 
+ **last_name** | **String**| Last name of the contacts to return | [optional] 
  **email** | **String**| Email of the contacts to return | [optional] 
+ **email_status** | **BOOLEAN**| EmailStatus of the contacts to return | [optional] 
+ **cellphone** | **String**| Cellphone of the contacts to return | [optional] 
+ **cellphone_status** | **BOOLEAN**| CellphoneStatus of the contacts to return | [optional] 
+ **phone** | **String**| Phone of the contacts to return | [optional] 
+ **phone_status** | **BOOLEAN**| PhoneStatus of the contacts to return | [optional] 
+ **birth_date** | [**Date**](.md)| Birth date of the contacts to return | [optional] 
+ **language** | **String**| Language date of the contacts to return | [optional] 
+ **extra_field_id** | [**Array&lt;String&gt;**](String.md)| Extra field of contacts, extra_field_id[field_id]&#x3D;value | [optional] 
+
+### Return type
+
+[**ContactCollection**](ContactCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+
+# **get_all_contacts_by_segment**
+> ContactCollection get_all_contacts_by_segment(list_id, segment_id, opts)
+
+Get all contacts by Segment Id
+
+Returns all contacts filtered by Segment Id
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+list_id = 56 # Integer | ID of the List
+segment_id = 'segment_id_example' # String | ID of the Segment
+opts = {
+  offset: 56, # Integer | Element offset (starting at zero for the first element)
+  limit: 10, # Integer | Number of items to return
+  show_removed: true # BOOLEAN | Show removed contacts
+}
+
+begin
+  #Get all contacts by Segment Id
+  result = api_instance.get_all_contacts_by_segment(list_id, segment_id, opts)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling ContactsApi->get_all_contacts_by_segment: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **Integer**| ID of the List | 
+ **segment_id** | **String**| ID of the Segment | 
+ **offset** | **Integer**| Element offset (starting at zero for the first element) | [optional] 
+ **limit** | **Integer**| Number of items to return | [optional] [default to 10]
+ **show_removed** | **BOOLEAN**| Show removed contacts | [optional] 
 
 ### Return type
 

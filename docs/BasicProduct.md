@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **mpn** | **String** | Manufacturer Part Number | [optional] 
 **link** | **String** | Link for the product | [optional] 
 **image_link** | **String** | Link for the product image | [optional] 
-**price** | **Float** | Price of the product | [optional] 
-**sale_price** | **Float** | Sale price of the product | [optional] 
+**price** | **Float** | Price of the product | [optional] [default to 0]
+**sale_price** | **Float** | Sale price of the product | [optional] [default to 0]
 **brand** | **String** | Brand of the product | [optional] 
 
 

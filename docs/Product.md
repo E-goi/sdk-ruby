@@ -14,10 +14,11 @@ Name | Type | Description | Notes
 **mpn** | **String** | Manufacturer Part Number | [optional] 
 **link** | **String** | Link for the product | [optional] 
 **image_link** | **String** | Link for the product image | [optional] 
-**price** | **Float** | Price of the product | [optional] 
-**sale_price** | **Float** | Sale price of the product | [optional] 
+**price** | **Float** | Price of the product | [optional] [default to 0]
+**sale_price** | **Float** | Sale price of the product | [optional] [default to 0]
 **brand** | **String** | Brand of the product | [optional] 
 **categories** | **Array&lt;String&gt;** | Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                                 syntax | [optional] 
 **related_products** | **Array&lt;String&gt;** | Related products | [optional] 
+**custom_attributes** | [**Array&lt;ProductCustomAttributes&gt;**](ProductCustomAttributes.md) | Custom attributes | [optional] 
 
 

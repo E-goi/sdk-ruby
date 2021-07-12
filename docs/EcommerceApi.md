@@ -4,16 +4,71 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_cart**](EcommerceApi.md#create_cart) | **POST** /{domain}/carts | Create cart
 [**create_catalog**](EcommerceApi.md#create_catalog) | **POST** /catalogs | Create new catalog
+[**create_order**](EcommerceApi.md#create_order) | **POST** /{domain}/orders | Create order
 [**create_product**](EcommerceApi.md#create_product) | **POST** /catalogs/{catalog_id}/products | Create new product
 [**delete_catalog**](EcommerceApi.md#delete_catalog) | **DELETE** /catalogs/{catalog_id} | Remove catalog
 [**delete_product**](EcommerceApi.md#delete_product) | **DELETE** /catalogs/{catalog_id}/products/{product_identifier} | Remove product
 [**get_all_catalogs**](EcommerceApi.md#get_all_catalogs) | **GET** /catalogs | Get all catalogs
 [**get_all_products**](EcommerceApi.md#get_all_products) | **GET** /catalogs/{catalog_id}/products | Get all products
 [**get_product**](EcommerceApi.md#get_product) | **GET** /catalogs/{catalog_id}/products/{product_identifier} | Get product
-[**import_orders_bulk**](EcommerceApi.md#import_orders_bulk) | **POST** /lists/{list_id}/orders | Orders import bulk request
 [**import_products**](EcommerceApi.md#import_products) | **POST** /catalogs/{catalog_id}/products/actions/import | Import products
 [**update_product**](EcommerceApi.md#update_product) | **PATCH** /catalogs/{catalog_id}/products/{product_identifier} | Update product
+
+
+# **create_cart**
+> AcceptedResponse create_cart(domain, cart)
+
+Create cart
+
+Creates a new cart. If ***contact_id*** is specified, order will be atached to the contact, if the contact propreties are specified, we'll create the user, if its already in your list it will get the correct contact (**make sure you are sending atleast all configured list's unique fields**). This same logic is also applied to the **product_identifier**.
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::EcommerceApi.new
+domain = 'domain_example' # String | Domain
+cart = EgoiRubyClient::Cart.new # Cart | Parameters for the Carts
+
+begin
+  #Create cart
+  result = api_instance.create_cart(domain, cart)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling EcommerceApi->create_cart: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String**| Domain | 
+ **cart** | [**Cart**](Cart.md)| Parameters for the Carts | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 
 
 # **create_catalog**
@@ -56,6 +111,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Catalog**](Catalog.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **create_order**
+> AcceptedResponse create_order(domain, create_order)
+
+Create order
+
+Creates a new order. If **contact_id** is specified, order will be atached to the contact, if the contact propreties are specified, we'll create the user, if its already in your list it will get the correct contact (***make sure you are sending atleast all configured list's unique fields***). This same logic is also applied to the **product_identifier**.
+
+### Example
+```ruby
+# load the gem
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::EcommerceApi.new
+domain = 'domain_example' # String | Domain
+create_order = EgoiRubyClient::CreateOrder.new # CreateOrder | Parameters for the Orders
+
+begin
+  #Create order
+  result = api_instance.create_order(domain, create_order)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Exception when calling EcommerceApi->create_order: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **domain** | **String**| Domain | 
+ **create_order** | [**CreateOrder**](CreateOrder.md)| Parameters for the Orders | 
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
 
 ### Authorization
 
@@ -384,60 +493,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-
-# **import_orders_bulk**
-> AcceptedResponse import_orders_bulk(list_id, import_orders_bulk_bulk_request)
-
-Orders import bulk request
-
-Creates new bulk orders syncronization
-
-### Example
-```ruby
-# load the gem
-require 'egoi-ruby-client'
-# setup authorization
-EgoiRubyClient.configure do |config|
-  # Configure API key authorization: Apikey
-  config.api_key['Apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Apikey'] = 'Bearer'
-end
-
-api_instance = EgoiRubyClient::EcommerceApi.new
-list_id = 56 # Integer | ID of the List
-import_orders_bulk_bulk_request = nil # Array<ImportOrdersBulkBulkRequest> | Parameters for the Orders
-
-begin
-  #Orders import bulk request
-  result = api_instance.import_orders_bulk(list_id, import_orders_bulk_bulk_request)
-  p result
-rescue EgoiRubyClient::ApiError => e
-  puts "Exception when calling EcommerceApi->import_orders_bulk: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **list_id** | **Integer**| ID of the List | 
- **import_orders_bulk_bulk_request** | [**Array&lt;ImportOrdersBulkBulkRequest&gt;**](Array.md)| Parameters for the Orders | 
-
-### Return type
-
-[**AcceptedResponse**](AcceptedResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
  - **Accept**: application/json
 
 
