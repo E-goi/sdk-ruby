@@ -1,16 +1,16 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-OpenAPI spec version: 3.0.0
+The version of the OpenAPI document: 3.0.0
 
 Generated by: https://openapi-generator.tech
-OpenAPI Generator version: 3.3.4
+OpenAPI Generator version: 6.2.1
 
 =end
 
-require 'uri'
+require 'cgi'
 
 module EgoiRubyClient
   class PushApi
@@ -21,8 +21,8 @@ module EgoiRubyClient
     end
     # Send push message
     # Deploys and sends a push message
-    # @param campaign_hash ID of the Campaign
-    # @param campaign_push_send_request Parameters for the &#39;send push&#39; action
+    # @param campaign_hash [String] ID of the Campaign
+    # @param campaign_push_send_request [CampaignPushSendRequest] Parameters for the &#39;send push&#39; action
     # @param [Hash] opts the optional parameters
     # @return [AcceptedResponse]
     def action_send_push(campaign_hash, campaign_push_send_request, opts = {})
@@ -32,10 +32,10 @@ module EgoiRubyClient
 
     # Send push message
     # Deploys and sends a push message
-    # @param campaign_hash ID of the Campaign
-    # @param campaign_push_send_request Parameters for the &#39;send push&#39; action
+    # @param campaign_hash [String] ID of the Campaign
+    # @param campaign_push_send_request [CampaignPushSendRequest] Parameters for the &#39;send push&#39; action
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AcceptedResponse, Fixnum, Hash)>] AcceptedResponse data, response status code and response headers
+    # @return [Array<(AcceptedResponse, Integer, Hash)>] AcceptedResponse data, response status code and response headers
     def action_send_push_with_http_info(campaign_hash, campaign_push_send_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.action_send_push ...'
@@ -44,36 +44,54 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && campaign_hash.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_hash' when calling PushApi.action_send_push"
       end
+      pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
+      if @api_client.config.client_side_validation && campaign_hash !~ pattern
+        fail ArgumentError, "invalid value for 'campaign_hash' when calling PushApi.action_send_push, must conform to the pattern #{pattern}."
+      end
+
       # verify the required parameter 'campaign_push_send_request' is set
       if @api_client.config.client_side_validation && campaign_push_send_request.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_push_send_request' when calling PushApi.action_send_push"
       end
       # resource path
-      local_var_path = '/campaigns/push/{campaign_hash}/actions/send'.sub('{' + 'campaign_hash' + '}', campaign_hash.to_s)
+      local_var_path = '/campaigns/push/{campaign_hash}/actions/send'.sub('{' + 'campaign_hash' + '}', CGI.escape(campaign_hash.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(campaign_push_send_request)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(campaign_push_send_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AcceptedResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.action_send_push",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AcceptedResponse')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#action_send_push\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -82,7 +100,7 @@ module EgoiRubyClient
 
     # Create new push campaign
     # Create a new push campaign
-    # @param push_campaign_post_request Parameters for the push campaign
+    # @param push_campaign_post_request [PushCampaignPostRequest] Parameters for the push campaign
     # @param [Hash] opts the optional parameters
     # @return [HashcodeCampaign]
     def create_push_campaign(push_campaign_post_request, opts = {})
@@ -92,9 +110,9 @@ module EgoiRubyClient
 
     # Create new push campaign
     # Create a new push campaign
-    # @param push_campaign_post_request Parameters for the push campaign
+    # @param push_campaign_post_request [PushCampaignPostRequest] Parameters for the push campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(HashcodeCampaign, Fixnum, Hash)>] HashcodeCampaign data, response status code and response headers
+    # @return [Array<(HashcodeCampaign, Integer, Hash)>] HashcodeCampaign data, response status code and response headers
     def create_push_campaign_with_http_info(push_campaign_post_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.create_push_campaign ...'
@@ -107,28 +125,41 @@ module EgoiRubyClient
       local_var_path = '/campaigns/push'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(push_campaign_post_request)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(push_campaign_post_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HashcodeCampaign'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.create_push_campaign",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'HashcodeCampaign')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#create_push_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -137,7 +168,7 @@ module EgoiRubyClient
 
     # Get a Push application from E-goi
     # Get a Push application from E-goi
-    # @param app_id ID of the E-goi push app.
+    # @param app_id [String] ID of the E-goi push app.
     # @param [Hash] opts the optional parameters
     # @return [AppStructure]
     def get_push_app(app_id, opts = {})
@@ -147,9 +178,9 @@ module EgoiRubyClient
 
     # Get a Push application from E-goi
     # Get a Push application from E-goi
-    # @param app_id ID of the E-goi push app.
+    # @param app_id [String] ID of the E-goi push app.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AppStructure, Fixnum, Hash)>] AppStructure data, response status code and response headers
+    # @return [Array<(AppStructure, Integer, Hash)>] AppStructure data, response status code and response headers
     def get_push_app_with_http_info(app_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.get_push_app ...'
@@ -159,29 +190,39 @@ module EgoiRubyClient
         fail ArgumentError, "Missing the required parameter 'app_id' when calling PushApi.get_push_app"
       end
       # resource path
-      local_var_path = '/push/apps/{app_id}'.sub('{' + 'app_id' + '}', app_id.to_s)
+      local_var_path = '/push/apps/{app_id}'.sub('{' + 'app_id' + '}', CGI.escape(app_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AppStructure'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.get_push_app",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AppStructure')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#get_push_app\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -202,7 +243,7 @@ module EgoiRubyClient
     # Get all Push applications from E-goi
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :list_id ID of the list to search for.
-    # @return [Array<(Array<AppStructure>, Fixnum, Hash)>] Array<AppStructure> data, response status code and response headers
+    # @return [Array<(Array<AppStructure>, Integer, Hash)>] Array<AppStructure> data, response status code and response headers
     def get_push_apps_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.get_push_apps ...'
@@ -211,27 +252,37 @@ module EgoiRubyClient
       local_var_path = '/push/apps'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
       query_params[:'list_id'] = opts[:'list_id'] if !opts[:'list_id'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array<AppStructure>'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.get_push_apps",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<AppStructure>')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#get_push_apps\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -240,8 +291,8 @@ module EgoiRubyClient
 
     # Update a specific push campaign
     # Update push campaign
-    # @param campaign_hash ID of the Campaign
-    # @param push_campaign_patch_request Parameters for the push campaign
+    # @param campaign_hash [String] ID of the Campaign
+    # @param push_campaign_patch_request [PushCampaignPatchRequest] Parameters for the push campaign
     # @param [Hash] opts the optional parameters
     # @return [HashcodeCampaign]
     def patch_push_campaign(campaign_hash, push_campaign_patch_request, opts = {})
@@ -251,10 +302,10 @@ module EgoiRubyClient
 
     # Update a specific push campaign
     # Update push campaign
-    # @param campaign_hash ID of the Campaign
-    # @param push_campaign_patch_request Parameters for the push campaign
+    # @param campaign_hash [String] ID of the Campaign
+    # @param push_campaign_patch_request [PushCampaignPatchRequest] Parameters for the push campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(HashcodeCampaign, Fixnum, Hash)>] HashcodeCampaign data, response status code and response headers
+    # @return [Array<(HashcodeCampaign, Integer, Hash)>] HashcodeCampaign data, response status code and response headers
     def patch_push_campaign_with_http_info(campaign_hash, push_campaign_patch_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.patch_push_campaign ...'
@@ -263,36 +314,54 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && campaign_hash.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_hash' when calling PushApi.patch_push_campaign"
       end
+      pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
+      if @api_client.config.client_side_validation && campaign_hash !~ pattern
+        fail ArgumentError, "invalid value for 'campaign_hash' when calling PushApi.patch_push_campaign, must conform to the pattern #{pattern}."
+      end
+
       # verify the required parameter 'push_campaign_patch_request' is set
       if @api_client.config.client_side_validation && push_campaign_patch_request.nil?
         fail ArgumentError, "Missing the required parameter 'push_campaign_patch_request' when calling PushApi.patch_push_campaign"
       end
       # resource path
-      local_var_path = '/campaigns/push/{campaign_hash}'.sub('{' + 'campaign_hash' + '}', campaign_hash.to_s)
+      local_var_path = '/campaigns/push/{campaign_hash}'.sub('{' + 'campaign_hash' + '}', CGI.escape(campaign_hash.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(push_campaign_patch_request)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(push_campaign_patch_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HashcodeCampaign'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.patch_push_campaign",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'HashcodeCampaign')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#patch_push_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -300,9 +369,9 @@ module EgoiRubyClient
     end
 
     # Registers an event from the push notification.
-    # Registers an event from the push notification.
-    # @param app_id ID of the E-goi push app.
-    # @param push_event Parameters for the event
+    # Registers a Firebase token
+    # @param app_id [String] ID of the E-goi push app.
+    # @param push_event [PushEvent] Parameters for the event
     # @param [Hash] opts the optional parameters
     # @return [PushResponse]
     def register_push_event(app_id, push_event, opts = {})
@@ -311,11 +380,11 @@ module EgoiRubyClient
     end
 
     # Registers an event from the push notification.
-    # Registers an event from the push notification.
-    # @param app_id ID of the E-goi push app.
-    # @param push_event Parameters for the event
+    # Registers a Firebase token
+    # @param app_id [String] ID of the E-goi push app.
+    # @param push_event [PushEvent] Parameters for the event
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PushResponse, Fixnum, Hash)>] PushResponse data, response status code and response headers
+    # @return [Array<(PushResponse, Integer, Hash)>] PushResponse data, response status code and response headers
     def register_push_event_with_http_info(app_id, push_event, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.register_push_event ...'
@@ -329,31 +398,44 @@ module EgoiRubyClient
         fail ArgumentError, "Missing the required parameter 'push_event' when calling PushApi.register_push_event"
       end
       # resource path
-      local_var_path = '/push/apps/{app_id}/event'.sub('{' + 'app_id' + '}', app_id.to_s)
+      local_var_path = '/push/apps/{app_id}/event'.sub('{' + 'app_id' + '}', CGI.escape(app_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(push_event)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(push_event)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PushResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.register_push_event",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PushResponse')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#register_push_event\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -362,8 +444,8 @@ module EgoiRubyClient
 
     # Registers a Firebase token
     # Registers a Firebase token
-    # @param app_id ID of the E-goi push app.
-    # @param push_token Parameters for the token
+    # @param app_id [String] ID of the E-goi push app.
+    # @param push_token [PushToken] Parameters for the token
     # @param [Hash] opts the optional parameters
     # @return [PushResponse]
     def register_push_token(app_id, push_token, opts = {})
@@ -373,10 +455,10 @@ module EgoiRubyClient
 
     # Registers a Firebase token
     # Registers a Firebase token
-    # @param app_id ID of the E-goi push app.
-    # @param push_token Parameters for the token
+    # @param app_id [String] ID of the E-goi push app.
+    # @param push_token [PushToken] Parameters for the token
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PushResponse, Fixnum, Hash)>] PushResponse data, response status code and response headers
+    # @return [Array<(PushResponse, Integer, Hash)>] PushResponse data, response status code and response headers
     def register_push_token_with_http_info(app_id, push_token, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: PushApi.register_push_token ...'
@@ -390,36 +472,48 @@ module EgoiRubyClient
         fail ArgumentError, "Missing the required parameter 'push_token' when calling PushApi.register_push_token"
       end
       # resource path
-      local_var_path = '/push/apps/{app_id}/token'.sub('{' + 'app_id' + '}', app_id.to_s)
+      local_var_path = '/push/apps/{app_id}/token'.sub('{' + 'app_id' + '}', CGI.escape(app_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(push_token)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(push_token)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PushResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"PushApi.register_push_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PushResponse')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: PushApi#register_push_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-
   end
 end

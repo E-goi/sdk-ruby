@@ -1,10 +1,79 @@
 # EgoiRubyClient::CampaignPushContent
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | 
-**message** | **String** | Push campaign message | 
-**template_id** | **Integer** | ID of the template for this campaign | 
+## Class instance methods
 
+### `openapi_one_of`
+
+Returns the list of classes defined in oneOf.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignPushContent.openapi_one_of
+# =>
+# [
+#   :'CampaignPushContentTemplate',
+#   :'CampaignPushContentText'
+# ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignPushContent.openapi_discriminator_name
+# => :'type'
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's mapping.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignPushContent.openapi_discriminator_mapping
+# =>
+# {
+#   :'template' => :'CampaignPushContentTemplate',
+#   :'text' => :'CampaignPushContentText'
+# }
+```
+
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignPushContent.build(data)
+# => #<CampaignPushContentTemplate:0x00007fdd4aab02a0>
+
+EgoiRubyClient::CampaignPushContent.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `CampaignPushContentTemplate`
+- `CampaignPushContentText`
+- `nil` (if no type matches)
 

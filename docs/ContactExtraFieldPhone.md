@@ -1,11 +1,24 @@
 # EgoiRubyClient::ContactExtraFieldPhone
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**field_id** | **Integer** |  | [optional] 
-**format** | **String** | Extra field format | [optional] 
-**value** | **String** | Extra field value | [optional] 
-**status** | **String** | Extra field status | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **field_id** | **Integer** |  | [optional] |
+| **format** | **String** | Extra field format | [optional][readonly] |
+| **value** | **String** | Extra field value | [optional] |
+| **status** | **String** | Extra field status | [optional] |
+
+## Example
+
+```ruby
+require 'egoi-ruby-client'
+
+instance = EgoiRubyClient::ContactExtraFieldPhone.new(
+  field_id: 1,
+  format: null,
+  value: null,
+  status: null
+)
+```
 

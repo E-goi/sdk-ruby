@@ -1,9 +1,20 @@
 # EgoiRubyClient::CampaignSmsOptions
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**encoding** | **String** |  | [optional] 
-**max_messages** | **Integer** |  | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **encoding** | **String** |  | [optional] |
+| **max_messages** | **Integer** |  | [optional] |
+
+## Example
+
+```ruby
+require 'egoi-ruby-client'
+
+instance = EgoiRubyClient::CampaignSmsOptions.new(
+  encoding: gsm,
+  max_messages: 5
+)
+```
 

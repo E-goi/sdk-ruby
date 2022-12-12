@@ -1,16 +1,16 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-OpenAPI spec version: 3.0.0
+The version of the OpenAPI document: 3.0.0
 
 Generated by: https://openapi-generator.tech
-OpenAPI Generator version: 3.3.4
+OpenAPI Generator version: 6.2.1
 
 =end
 
-require 'uri'
+require 'cgi'
 
 module EgoiRubyClient
   class ListsApi
@@ -21,7 +21,7 @@ module EgoiRubyClient
     end
     # Create new list
     # Create a new list
-    # @param post_request_list Parameters for the List
+    # @param post_request_list [PostRequestList] Parameters for the List
     # @param [Hash] opts the optional parameters
     # @return [Array]
     def create_list(post_request_list, opts = {})
@@ -31,9 +31,9 @@ module EgoiRubyClient
 
     # Create new list
     # Create a new list
-    # @param post_request_list Parameters for the List
+    # @param post_request_list [PostRequestList] Parameters for the List
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array, Fixnum, Hash)>] Array data, response status code and response headers
+    # @return [Array<(Array, Integer, Hash)>] Array data, response status code and response headers
     def create_list_with_http_info(post_request_list, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListsApi.create_list ...'
@@ -46,28 +46,41 @@ module EgoiRubyClient
       local_var_path = '/lists'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(post_request_list)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(post_request_list)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"ListsApi.create_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ListsApi#create_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -76,7 +89,7 @@ module EgoiRubyClient
 
     # Remove list
     # Remove list information given its ID
-    # @param list_id ID of the List
+    # @param list_id [Integer] ID of the List
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_list(list_id, opts = {})
@@ -86,9 +99,9 @@ module EgoiRubyClient
 
     # Remove list
     # Remove list information given its ID
-    # @param list_id ID of the List
+    # @param list_id [Integer] ID of the List
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_list_with_http_info(list_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListsApi.delete_list ...'
@@ -97,29 +110,44 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling ListsApi.delete_list"
       end
+      if @api_client.config.client_side_validation && list_id < 1
+        fail ArgumentError, 'invalid value for "list_id" when calling ListsApi.delete_list, must be greater than or equal to 1.'
+      end
+
       # resource path
-      local_var_path = '/lists/{list_id}'.sub('{' + 'list_id' + '}', list_id.to_s)
+      local_var_path = '/lists/{list_id}'.sub('{' + 'list_id' + '}', CGI.escape(list_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"ListsApi.delete_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ListsApi#delete_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -135,10 +163,10 @@ module EgoiRubyClient
     # @option opts [String] :order_by Reference attribute to order lists (default to 'list_id')
     # @option opts [String] :internal_name Internal name of the list
     # @option opts [String] :public_name Public name of the list
-    # @option opts [DateTime] :created_min Created initial date
-    # @option opts [DateTime] :created_max Created finish
-    # @option opts [DateTime] :updated_min Updated initial
-    # @option opts [DateTime] :updated_max Updated finish
+    # @option opts [Time] :created_min Created initial date
+    # @option opts [Time] :created_max Created finish
+    # @option opts [Time] :updated_min Updated initial
+    # @option opts [Time] :updated_max Updated finish
     # @return [ListCollection]
     def get_all_lists(opts = {})
       data, _status_code, _headers = get_all_lists_with_http_info(opts)
@@ -149,16 +177,16 @@ module EgoiRubyClient
     # Returns all lists
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Element offset (starting at zero for the first element)
-    # @option opts [Integer] :limit Number of items to return
-    # @option opts [String] :order Type of order
-    # @option opts [String] :order_by Reference attribute to order lists
+    # @option opts [Integer] :limit Number of items to return (default to 10)
+    # @option opts [String] :order Type of order (default to 'desc')
+    # @option opts [String] :order_by Reference attribute to order lists (default to 'list_id')
     # @option opts [String] :internal_name Internal name of the list
     # @option opts [String] :public_name Public name of the list
-    # @option opts [DateTime] :created_min Created initial date
-    # @option opts [DateTime] :created_max Created finish
-    # @option opts [DateTime] :updated_min Updated initial
-    # @option opts [DateTime] :updated_max Updated finish
-    # @return [Array<(ListCollection, Fixnum, Hash)>] ListCollection data, response status code and response headers
+    # @option opts [Time] :created_min Created initial date
+    # @option opts [Time] :created_max Created finish
+    # @option opts [Time] :updated_min Updated initial
+    # @option opts [Time] :updated_max Updated finish
+    # @return [Array<(ListCollection, Integer, Hash)>] ListCollection data, response status code and response headers
     def get_all_lists_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListsApi.get_all_lists ...'
@@ -175,17 +203,19 @@ module EgoiRubyClient
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling ListsApi.get_all_lists, must be greater than or equal to 1.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'order'] && !['asc', 'desc'].include?(opts[:'order'])
-        fail ArgumentError, 'invalid value for "order", must be one of asc, desc'
+      allowable_values = ["asc", "desc"]
+      if @api_client.config.client_side_validation && opts[:'order'] && !allowable_values.include?(opts[:'order'])
+        fail ArgumentError, "invalid value for \"order\", must be one of #{allowable_values}"
       end
-      if @api_client.config.client_side_validation && opts[:'order_by'] && !['list_id', 'internal_name', 'public_name', 'created', 'updated'].include?(opts[:'order_by'])
-        fail ArgumentError, 'invalid value for "order_by", must be one of list_id, internal_name, public_name, created, updated'
+      allowable_values = ["list_id", "internal_name", "public_name", "created", "updated"]
+      if @api_client.config.client_side_validation && opts[:'order_by'] && !allowable_values.include?(opts[:'order_by'])
+        fail ArgumentError, "invalid value for \"order_by\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/lists'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'order'] = opts[:'order'] if !opts[:'order'].nil?
@@ -198,23 +228,33 @@ module EgoiRubyClient
       query_params[:'updated_max'] = opts[:'updated_max'] if !opts[:'updated_max'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ListCollection'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"ListsApi.get_all_lists",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'ListCollection')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ListsApi#get_all_lists\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -223,8 +263,8 @@ module EgoiRubyClient
 
     # Update a specific list
     # Update a list
-    # @param list_id ID of the List
-    # @param patch_request_list Parameters for the List
+    # @param list_id [Integer] ID of the List
+    # @param patch_request_list [PatchRequestList] Parameters for the List
     # @param [Hash] opts the optional parameters
     # @return [Array]
     def update_list(list_id, patch_request_list, opts = {})
@@ -234,10 +274,10 @@ module EgoiRubyClient
 
     # Update a specific list
     # Update a list
-    # @param list_id ID of the List
-    # @param patch_request_list Parameters for the List
+    # @param list_id [Integer] ID of the List
+    # @param patch_request_list [PatchRequestList] Parameters for the List
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array, Fixnum, Hash)>] Array data, response status code and response headers
+    # @return [Array<(Array, Integer, Hash)>] Array data, response status code and response headers
     def update_list_with_http_info(list_id, patch_request_list, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: ListsApi.update_list ...'
@@ -246,41 +286,57 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && list_id.nil?
         fail ArgumentError, "Missing the required parameter 'list_id' when calling ListsApi.update_list"
       end
+      if @api_client.config.client_side_validation && list_id < 1
+        fail ArgumentError, 'invalid value for "list_id" when calling ListsApi.update_list, must be greater than or equal to 1.'
+      end
+
       # verify the required parameter 'patch_request_list' is set
       if @api_client.config.client_side_validation && patch_request_list.nil?
         fail ArgumentError, "Missing the required parameter 'patch_request_list' when calling ListsApi.update_list"
       end
       # resource path
-      local_var_path = '/lists/{list_id}'.sub('{' + 'list_id' + '}', list_id.to_s)
+      local_var_path = '/lists/{list_id}'.sub('{' + 'list_id' + '}', CGI.escape(list_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(patch_request_list)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(patch_request_list)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'Array'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"ListsApi.update_list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ListsApi#update_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-
   end
 end

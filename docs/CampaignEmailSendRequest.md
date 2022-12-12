@@ -1,14 +1,49 @@
 # EgoiRubyClient::CampaignEmailSendRequest
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**list_id** | **Integer** |  | 
-**segments** | [**EmailSendSegment**](EmailSendSegment.md) |  | 
-**notify** | **Array&lt;Integer&gt;** | Array of IDs of the users to notify | [optional] 
-**destination_field** | **String** | Destination field of this campaign, which must be an email field (email or extra field id).                         If not sent, defaults to the general email field | [optional] 
-**unique_contacts_only** | **BOOLEAN** | True to send the campaign only to unique contacts | [optional] [default to false]
-**limit_hour** | [**LimitHourActionSendLimitHour**](LimitHourActionSendLimitHour.md) |  | [optional] 
-**schedule_date** | **DateTime** | The date and time | [optional] 
+## Class instance methods
 
+### `openapi_one_of`
+
+Returns the list of classes defined in oneOf.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailSendRequest.openapi_one_of
+# =>
+# [
+#   :'CampaignEmailScheduleRequest',
+#   :'CampaignEmailSendNowRequest'
+# ]
+```
+
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailSendRequest.build(data)
+# => #<CampaignEmailScheduleRequest:0x00007fdd4aab02a0>
+
+EgoiRubyClient::CampaignEmailSendRequest.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `CampaignEmailScheduleRequest`
+- `CampaignEmailSendNowRequest`
+- `nil` (if no type matches)
 

@@ -1,60 +1,75 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-OpenAPI spec version: 3.0.0
+The version of the OpenAPI document: 3.0.0
 
 Generated by: https://openapi-generator.tech
-OpenAPI Generator version: 3.3.4
+OpenAPI Generator version: 6.2.1
 
 =end
 
 require 'date'
+require 'time'
 
 module EgoiRubyClient
   class WebhookActionSchema
-    
-    FORGET_SUBSCRIPTION = 'forget_subscription'.freeze
-    CHANGE_CONSENT = 'change_consent'.freeze
-    WEB_PUSH_BOUNCE = 'web_push_bounce'.freeze
-    WEB_PUSH_CLICK = 'web_push_click'.freeze
-    WEB_PUSH_DELIVERED = 'web_push_delivered'.freeze
-    WEB_PUSH_OPEN = 'web_push_open'.freeze
-    WEB_PUSH_SEND = 'web_push_send'.freeze
-    WEB_PUSH_SUBSCRIPTION = 'web_push_subscription'.freeze
-    WEB_PUSH_UNSUBSCRIPTION = 'web_push_unsubscription'.freeze
-    EMAIL_SEND = 'email_send'.freeze
-    EMAIL_OPEN = 'email_open'.freeze
-    EMAIL_CLICK = 'email_click'.freeze
-    EMAIL_SOFT_BOUNCE = 'email_soft_bounce'.freeze
-    EMAIL_HARD_BOUNCE = 'email_hard_bounce'.freeze
-    SMS_SEND = 'sms_send'.freeze
-    VOICE_SEND = 'voice_send'.freeze
-    UNSUBSCRIBE = 'unsubscribe'.freeze
-    SUBSCRIPTION = 'subscription'.freeze
-    RESUBSCRIPTION = 'resubscription'.freeze
-    FACEBOOK_LIKE = 'facebook_like'.freeze
-    SOCIAL_SHARE = 'social_share'.freeze
-    DOUBLE_OPTIN = 'double_optin'.freeze
-    EMAIL_SPAM_COMPLAINT = 'email_spam_complaint'.freeze
-    EMAIL_FIELD_DISABLE = 'email_field_disable'.freeze
-    CELLPHONE_FIELD_DISABLE = 'cellphone_field_disable'.freeze
-    PHONE_FIELD_DISABLE = 'phone_field_disable'.freeze
-    PUSH_SEND = 'push_send'.freeze
-    PUSH_OPEN = 'push_open'.freeze
-    PUSH_CLICK = 'push_click'.freeze
-    PUSH_RECEIVED = 'push_received'.freeze
-    PUSH_ERROR = 'push_error'.freeze
-    PUSH_CANCELED = 'push_canceled'.freeze
+    FORGET_SUBSCRIPTION = "forget_subscription".freeze
+    CHANGE_CONSENT = "change_consent".freeze
+    WEB_PUSH_BOUNCE = "web_push_bounce".freeze
+    WEB_PUSH_CLICK = "web_push_click".freeze
+    WEB_PUSH_DELIVERED = "web_push_delivered".freeze
+    WEB_PUSH_OPEN = "web_push_open".freeze
+    WEB_PUSH_SEND = "web_push_send".freeze
+    WEB_PUSH_SUBSCRIPTION = "web_push_subscription".freeze
+    WEB_PUSH_UNSUBSCRIPTION = "web_push_unsubscription".freeze
+    EMAIL_SEND = "email_send".freeze
+    EMAIL_OPEN = "email_open".freeze
+    EMAIL_CLICK = "email_click".freeze
+    EMAIL_SOFT_BOUNCE = "email_soft_bounce".freeze
+    EMAIL_HARD_BOUNCE = "email_hard_bounce".freeze
+    SMS_SEND = "sms_send".freeze
+    VOICE_SEND = "voice_send".freeze
+    UNSUBSCRIBE = "unsubscribe".freeze
+    SUBSCRIPTION = "subscription".freeze
+    EDIT_SUBSCRIPTION = "edit_subscription".freeze
+    RESUBSCRIPTION = "resubscription".freeze
+    FACEBOOK_LIKE = "facebook_like".freeze
+    SOCIAL_SHARE = "social_share".freeze
+    DOUBLE_OPTIN = "double_optin".freeze
+    EMAIL_SPAM_COMPLAINT = "email_spam_complaint".freeze
+    EMAIL_FIELD_DISABLE = "email_field_disable".freeze
+    CELLPHONE_FIELD_DISABLE = "cellphone_field_disable".freeze
+    PHONE_FIELD_DISABLE = "phone_field_disable".freeze
+    PUSH_SEND = "push_send".freeze
+    PUSH_OPEN = "push_open".freeze
+    PUSH_CLICK = "push_click".freeze
+    PUSH_RECEIVED = "push_received".freeze
+    PUSH_ERROR = "push_error".freeze
+    PUSH_CANCELED = "push_canceled".freeze
+    NEW_ORDER = "new_order".freeze
+    CART_UPDATE = "cart_update".freeze
+    GOAL_CONVERSION = "goal_conversion".freeze
+    PRODUCT_VIEW = "product_view".freeze
+
+    def self.all_vars
+      @all_vars ||= [FORGET_SUBSCRIPTION, CHANGE_CONSENT, WEB_PUSH_BOUNCE, WEB_PUSH_CLICK, WEB_PUSH_DELIVERED, WEB_PUSH_OPEN, WEB_PUSH_SEND, WEB_PUSH_SUBSCRIPTION, WEB_PUSH_UNSUBSCRIPTION, EMAIL_SEND, EMAIL_OPEN, EMAIL_CLICK, EMAIL_SOFT_BOUNCE, EMAIL_HARD_BOUNCE, SMS_SEND, VOICE_SEND, UNSUBSCRIBE, SUBSCRIPTION, EDIT_SUBSCRIPTION, RESUBSCRIPTION, FACEBOOK_LIKE, SOCIAL_SHARE, DOUBLE_OPTIN, EMAIL_SPAM_COMPLAINT, EMAIL_FIELD_DISABLE, CELLPHONE_FIELD_DISABLE, PHONE_FIELD_DISABLE, PUSH_SEND, PUSH_OPEN, PUSH_CLICK, PUSH_RECEIVED, PUSH_ERROR, PUSH_CANCELED, NEW_ORDER, CART_UPDATE, GOAL_CONVERSION, PRODUCT_VIEW].freeze
+    end
+
+    # Builds the enum from string
+    # @param [String] The enum value in the form of the string
+    # @return [String] The enum value
+    def self.build_from_hash(value)
+      new.build_from_hash(value)
+    end
 
     # Builds the enum from string
     # @param [String] The enum value in the form of the string
     # @return [String] The enum value
     def build_from_hash(value)
-      constantValues = WebhookActionSchema.constants.select { |c| WebhookActionSchema::const_get(c) == value }
-      raise "Invalid ENUM value #{value} for class #WebhookActionSchema" if constantValues.empty?
-      value
+      return value if WebhookActionSchema.all_vars.include?(value)
+      raise "Invalid ENUM value #{value} for class #WebhookActionSchema"
     end
   end
 end

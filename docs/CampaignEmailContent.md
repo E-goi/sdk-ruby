@@ -1,15 +1,85 @@
 # EgoiRubyClient::CampaignEmailContent
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**type** | **String** |  | [optional] 
-**body** | **String** | HTML code of the campaign | [optional] 
-**plain_text** | **String** | Plain text for the campaign | [optional] 
-**snippet** | **String** | Snippet text for the campaign | [optional] 
-**template_id** | **Integer** | ID of the template for this campaign | [optional] 
-**url** | **String** | Campaign url | [optional] 
-**use_page_title** | **BOOLEAN** | True to use page title as the campaign title | [optional] [default to false]
-**file** | **String** | Campaign file | [optional] 
+## Class instance methods
 
+### `openapi_one_of`
+
+Returns the list of classes defined in oneOf.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailContent.openapi_one_of
+# =>
+# [
+#   :'CampaignEmailContentFile',
+#   :'CampaignEmailContentHtml',
+#   :'CampaignEmailContentTemplate',
+#   :'CampaignEmailContentWebPage'
+# ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailContent.openapi_discriminator_name
+# => :'type'
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's mapping.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailContent.openapi_discriminator_mapping
+# =>
+# {
+#   :'file' => :'CampaignEmailContentFile',
+#   :'html' => :'CampaignEmailContentHtml',
+#   :'template' => :'CampaignEmailContentTemplate',
+#   :'web_page' => :'CampaignEmailContentWebPage'
+# }
+```
+
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignEmailContent.build(data)
+# => #<CampaignEmailContentFile:0x00007fdd4aab02a0>
+
+EgoiRubyClient::CampaignEmailContent.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `CampaignEmailContentFile`
+- `CampaignEmailContentHtml`
+- `CampaignEmailContentTemplate`
+- `CampaignEmailContentWebPage`
+- `nil` (if no type matches)
 

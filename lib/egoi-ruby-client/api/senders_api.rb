@@ -1,16 +1,16 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-OpenAPI spec version: 3.0.0
+The version of the OpenAPI document: 3.0.0
 
 Generated by: https://openapi-generator.tech
-OpenAPI Generator version: 3.3.4
+OpenAPI Generator version: 6.2.1
 
 =end
 
-require 'uri'
+require 'cgi'
 
 module EgoiRubyClient
   class SendersApi
@@ -21,53 +21,66 @@ module EgoiRubyClient
     end
     # Create cellphone sender
     # Creates a cellphone sender
-    # @param cellphone_sender Parameters for the sender
+    # @param cellphone_sender_post [CellphoneSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
     # @return [CellphoneSender]
-    def create_cellphone_sender(cellphone_sender, opts = {})
-      data, _status_code, _headers = create_cellphone_sender_with_http_info(cellphone_sender, opts)
+    def create_cellphone_sender(cellphone_sender_post, opts = {})
+      data, _status_code, _headers = create_cellphone_sender_with_http_info(cellphone_sender_post, opts)
       data
     end
 
     # Create cellphone sender
     # Creates a cellphone sender
-    # @param cellphone_sender Parameters for the sender
+    # @param cellphone_sender_post [CellphoneSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CellphoneSender, Fixnum, Hash)>] CellphoneSender data, response status code and response headers
-    def create_cellphone_sender_with_http_info(cellphone_sender, opts = {})
+    # @return [Array<(CellphoneSender, Integer, Hash)>] CellphoneSender data, response status code and response headers
+    def create_cellphone_sender_with_http_info(cellphone_sender_post, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.create_cellphone_sender ...'
       end
-      # verify the required parameter 'cellphone_sender' is set
-      if @api_client.config.client_side_validation && cellphone_sender.nil?
-        fail ArgumentError, "Missing the required parameter 'cellphone_sender' when calling SendersApi.create_cellphone_sender"
+      # verify the required parameter 'cellphone_sender_post' is set
+      if @api_client.config.client_side_validation && cellphone_sender_post.nil?
+        fail ArgumentError, "Missing the required parameter 'cellphone_sender_post' when calling SendersApi.create_cellphone_sender"
       end
       # resource path
       local_var_path = '/senders/cellphone'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(cellphone_sender)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(cellphone_sender_post)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CellphoneSender'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.create_cellphone_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CellphoneSender')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#create_cellphone_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -76,53 +89,66 @@ module EgoiRubyClient
 
     # Create email sender
     # Creates an email sender
-    # @param email_sender Parameters for the sender
+    # @param email_sender_post [EmailSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
     # @return [EmailSender]
-    def create_email_sender(email_sender, opts = {})
-      data, _status_code, _headers = create_email_sender_with_http_info(email_sender, opts)
+    def create_email_sender(email_sender_post, opts = {})
+      data, _status_code, _headers = create_email_sender_with_http_info(email_sender_post, opts)
       data
     end
 
     # Create email sender
     # Creates an email sender
-    # @param email_sender Parameters for the sender
+    # @param email_sender_post [EmailSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(EmailSender, Fixnum, Hash)>] EmailSender data, response status code and response headers
-    def create_email_sender_with_http_info(email_sender, opts = {})
+    # @return [Array<(EmailSender, Integer, Hash)>] EmailSender data, response status code and response headers
+    def create_email_sender_with_http_info(email_sender_post, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.create_email_sender ...'
       end
-      # verify the required parameter 'email_sender' is set
-      if @api_client.config.client_side_validation && email_sender.nil?
-        fail ArgumentError, "Missing the required parameter 'email_sender' when calling SendersApi.create_email_sender"
+      # verify the required parameter 'email_sender_post' is set
+      if @api_client.config.client_side_validation && email_sender_post.nil?
+        fail ArgumentError, "Missing the required parameter 'email_sender_post' when calling SendersApi.create_email_sender"
       end
       # resource path
       local_var_path = '/senders/email'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(email_sender)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(email_sender_post)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmailSender'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.create_email_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EmailSender')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#create_email_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -131,53 +157,66 @@ module EgoiRubyClient
 
     # Create phone sender
     # Creates a phone sender
-    # @param phone_sender Parameters for the sender
+    # @param phone_sender_post [PhoneSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
     # @return [PhoneSender]
-    def create_phone_sender(phone_sender, opts = {})
-      data, _status_code, _headers = create_phone_sender_with_http_info(phone_sender, opts)
+    def create_phone_sender(phone_sender_post, opts = {})
+      data, _status_code, _headers = create_phone_sender_with_http_info(phone_sender_post, opts)
       data
     end
 
     # Create phone sender
     # Creates a phone sender
-    # @param phone_sender Parameters for the sender
+    # @param phone_sender_post [PhoneSenderPost] Parameters for the sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(PhoneSender, Fixnum, Hash)>] PhoneSender data, response status code and response headers
-    def create_phone_sender_with_http_info(phone_sender, opts = {})
+    # @return [Array<(PhoneSender, Integer, Hash)>] PhoneSender data, response status code and response headers
+    def create_phone_sender_with_http_info(phone_sender_post, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.create_phone_sender ...'
       end
-      # verify the required parameter 'phone_sender' is set
-      if @api_client.config.client_side_validation && phone_sender.nil?
-        fail ArgumentError, "Missing the required parameter 'phone_sender' when calling SendersApi.create_phone_sender"
+      # verify the required parameter 'phone_sender_post' is set
+      if @api_client.config.client_side_validation && phone_sender_post.nil?
+        fail ArgumentError, "Missing the required parameter 'phone_sender_post' when calling SendersApi.create_phone_sender"
       end
       # resource path
       local_var_path = '/senders/phone'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(phone_sender)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(phone_sender_post)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PhoneSender'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.create_phone_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PhoneSender')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#create_phone_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -186,7 +225,7 @@ module EgoiRubyClient
 
     # Remove cellphone sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_cellphone_sender(sender_id, opts = {})
@@ -196,9 +235,9 @@ module EgoiRubyClient
 
     # Remove cellphone sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_cellphone_sender_with_http_info(sender_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.delete_cellphone_sender ...'
@@ -207,29 +246,44 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && sender_id.nil?
         fail ArgumentError, "Missing the required parameter 'sender_id' when calling SendersApi.delete_cellphone_sender"
       end
+      if @api_client.config.client_side_validation && sender_id < 1
+        fail ArgumentError, 'invalid value for "sender_id" when calling SendersApi.delete_cellphone_sender, must be greater than or equal to 1.'
+      end
+
       # resource path
-      local_var_path = '/senders/cellphone/{sender_id}'.sub('{' + 'sender_id' + '}', sender_id.to_s)
+      local_var_path = '/senders/cellphone/{sender_id}'.sub('{' + 'sender_id' + '}', CGI.escape(sender_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.delete_cellphone_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#delete_cellphone_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -238,7 +292,7 @@ module EgoiRubyClient
 
     # Remove email sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_email_sender(sender_id, opts = {})
@@ -248,9 +302,9 @@ module EgoiRubyClient
 
     # Remove email sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_email_sender_with_http_info(sender_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.delete_email_sender ...'
@@ -259,29 +313,44 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && sender_id.nil?
         fail ArgumentError, "Missing the required parameter 'sender_id' when calling SendersApi.delete_email_sender"
       end
+      if @api_client.config.client_side_validation && sender_id < 1
+        fail ArgumentError, 'invalid value for "sender_id" when calling SendersApi.delete_email_sender, must be greater than or equal to 1.'
+      end
+
       # resource path
-      local_var_path = '/senders/email/{sender_id}'.sub('{' + 'sender_id' + '}', sender_id.to_s)
+      local_var_path = '/senders/email/{sender_id}'.sub('{' + 'sender_id' + '}', CGI.escape(sender_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.delete_email_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#delete_email_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -290,7 +359,7 @@ module EgoiRubyClient
 
     # Remove phone sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def delete_phone_sender(sender_id, opts = {})
@@ -300,9 +369,9 @@ module EgoiRubyClient
 
     # Remove phone sender
     # Remove sender information given its ID
-    # @param sender_id ID of the Sender
+    # @param sender_id [Integer] ID of the Sender
     # @param [Hash] opts the optional parameters
-    # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+    # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
     def delete_phone_sender_with_http_info(sender_id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.delete_phone_sender ...'
@@ -311,29 +380,44 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && sender_id.nil?
         fail ArgumentError, "Missing the required parameter 'sender_id' when calling SendersApi.delete_phone_sender"
       end
+      if @api_client.config.client_side_validation && sender_id < 1
+        fail ArgumentError, 'invalid value for "sender_id" when calling SendersApi.delete_phone_sender, must be greater than or equal to 1.'
+      end
+
       # resource path
-      local_var_path = '/senders/phone/{sender_id}'.sub('{' + 'sender_id' + '}', sender_id.to_s)
+      local_var_path = '/senders/phone/{sender_id}'.sub('{' + 'sender_id' + '}', CGI.escape(sender_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type]
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.delete_phone_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
-        :auth_names => auth_names)
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#delete_phone_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -356,9 +440,9 @@ module EgoiRubyClient
     # Returns all cellphone senders
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Element offset (starting at zero for the first element)
-    # @option opts [Integer] :limit Number of items to return
+    # @option opts [Integer] :limit Number of items to return (default to 10)
     # @option opts [String] :status Status filter
-    # @return [Array<(CellphoneSenderCollection, Fixnum, Hash)>] CellphoneSenderCollection data, response status code and response headers
+    # @return [Array<(CellphoneSenderCollection, Integer, Hash)>] CellphoneSenderCollection data, response status code and response headers
     def get_all_cellphone_senders_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.get_all_cellphone_senders ...'
@@ -375,36 +459,47 @@ module EgoiRubyClient
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SendersApi.get_all_cellphone_senders, must be greater than or equal to 1.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'status'] && !['active', 'moderation', 'rejected'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of active, moderation, rejected'
+      allowable_values = ["active", "moderation", "rejected"]
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/senders/cellphone'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CellphoneSenderCollection'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.get_all_cellphone_senders",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CellphoneSenderCollection')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#get_all_cellphone_senders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -427,9 +522,9 @@ module EgoiRubyClient
     # Returns all email senders
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Element offset (starting at zero for the first element)
-    # @option opts [Integer] :limit Number of items to return
+    # @option opts [Integer] :limit Number of items to return (default to 10)
     # @option opts [String] :status Status filter
-    # @return [Array<(EmailSenderCollection, Fixnum, Hash)>] EmailSenderCollection data, response status code and response headers
+    # @return [Array<(EmailSenderCollection, Integer, Hash)>] EmailSenderCollection data, response status code and response headers
     def get_all_email_senders_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.get_all_email_senders ...'
@@ -446,36 +541,47 @@ module EgoiRubyClient
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SendersApi.get_all_email_senders, must be greater than or equal to 1.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'status'] && !['active', 'moderation', 'rejected'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of active, moderation, rejected'
+      allowable_values = ["active", "moderation", "rejected"]
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/senders/email'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmailSenderCollection'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.get_all_email_senders",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EmailSenderCollection')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#get_all_email_senders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -498,9 +604,9 @@ module EgoiRubyClient
     # Returns all phone senders
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :offset Element offset (starting at zero for the first element)
-    # @option opts [Integer] :limit Number of items to return
+    # @option opts [Integer] :limit Number of items to return (default to 10)
     # @option opts [String] :status Status filter
-    # @return [Array<(PhoneSenderCollection, Fixnum, Hash)>] PhoneSenderCollection data, response status code and response headers
+    # @return [Array<(PhoneSenderCollection, Integer, Hash)>] PhoneSenderCollection data, response status code and response headers
     def get_all_phone_senders_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.get_all_phone_senders ...'
@@ -517,36 +623,47 @@ module EgoiRubyClient
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling SendersApi.get_all_phone_senders, must be greater than or equal to 1.'
       end
 
-      if @api_client.config.client_side_validation && opts[:'status'] && !['active', 'moderation', 'rejected'].include?(opts[:'status'])
-        fail ArgumentError, 'invalid value for "status", must be one of active, moderation, rejected'
+      allowable_values = ["active", "moderation", "rejected"]
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
       end
       # resource path
       local_var_path = '/senders/phone'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PhoneSenderCollection'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.get_all_phone_senders",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'PhoneSenderCollection')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#get_all_phone_senders\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -555,8 +672,8 @@ module EgoiRubyClient
 
     # Update email sender
     # Updates an email sender
-    # @param sender_id ID of the Sender
-    # @param email_sender_put_request Parameters for the contact
+    # @param sender_id [Integer] ID of the Sender
+    # @param email_sender_put_request [EmailSenderPutRequest] Parameters for the contact
     # @param [Hash] opts the optional parameters
     # @return [EmailSender]
     def put_email_sender(sender_id, email_sender_put_request, opts = {})
@@ -566,10 +683,10 @@ module EgoiRubyClient
 
     # Update email sender
     # Updates an email sender
-    # @param sender_id ID of the Sender
-    # @param email_sender_put_request Parameters for the contact
+    # @param sender_id [Integer] ID of the Sender
+    # @param email_sender_put_request [EmailSenderPutRequest] Parameters for the contact
     # @param [Hash] opts the optional parameters
-    # @return [Array<(EmailSender, Fixnum, Hash)>] EmailSender data, response status code and response headers
+    # @return [Array<(EmailSender, Integer, Hash)>] EmailSender data, response status code and response headers
     def put_email_sender_with_http_info(sender_id, email_sender_put_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: SendersApi.put_email_sender ...'
@@ -578,41 +695,57 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && sender_id.nil?
         fail ArgumentError, "Missing the required parameter 'sender_id' when calling SendersApi.put_email_sender"
       end
+      if @api_client.config.client_side_validation && sender_id < 1
+        fail ArgumentError, 'invalid value for "sender_id" when calling SendersApi.put_email_sender, must be greater than or equal to 1.'
+      end
+
       # verify the required parameter 'email_sender_put_request' is set
       if @api_client.config.client_side_validation && email_sender_put_request.nil?
         fail ArgumentError, "Missing the required parameter 'email_sender_put_request' when calling SendersApi.put_email_sender"
       end
       # resource path
-      local_var_path = '/senders/email/{sender_id}'.sub('{' + 'sender_id' + '}', sender_id.to_s)
+      local_var_path = '/senders/email/{sender_id}'.sub('{' + 'sender_id' + '}', CGI.escape(sender_id.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(email_sender_put_request)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(email_sender_put_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'EmailSender'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"SendersApi.put_email_sender",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'EmailSender')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: SendersApi#put_email_sender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-
   end
 end

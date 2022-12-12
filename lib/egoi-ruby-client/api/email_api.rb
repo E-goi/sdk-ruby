@@ -1,16 +1,16 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.   The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.   BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication   We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:  #!/bin/bash  curl -X GET 'https://api.egoiapp.com/my-account' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:  #!/bin/bash  curl -X POST 'http://api.egoiapp.com/tags' \\  -H 'accept: application/json' \\  -H 'Apikey: <YOUR_APY_KEY>' \\  -H 'Content-Type: application/json' \\  -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-OpenAPI spec version: 3.0.0
+The version of the OpenAPI document: 3.0.0
 
 Generated by: https://openapi-generator.tech
-OpenAPI Generator version: 3.3.4
+OpenAPI Generator version: 6.2.1
 
 =end
 
-require 'uri'
+require 'cgi'
 
 module EgoiRubyClient
   class EmailApi
@@ -21,7 +21,7 @@ module EgoiRubyClient
     end
     # Enables a rss email campaign
     # Enables a rss email message
-    # @param campaign_hash ID of the Campaign
+    # @param campaign_hash [String] ID of the Campaign
     # @param [Hash] opts the optional parameters
     # @return [AcceptedResponse]
     def action_enable_email_rss(campaign_hash, opts = {})
@@ -31,9 +31,9 @@ module EgoiRubyClient
 
     # Enables a rss email campaign
     # Enables a rss email message
-    # @param campaign_hash ID of the Campaign
+    # @param campaign_hash [String] ID of the Campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AcceptedResponse, Fixnum, Hash)>] AcceptedResponse data, response status code and response headers
+    # @return [Array<(AcceptedResponse, Integer, Hash)>] AcceptedResponse data, response status code and response headers
     def action_enable_email_rss_with_http_info(campaign_hash, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailApi.action_enable_email_rss ...'
@@ -42,30 +42,45 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && campaign_hash.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_hash' when calling EmailApi.action_enable_email_rss"
       end
+      pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
+      if @api_client.config.client_side_validation && campaign_hash !~ pattern
+        fail ArgumentError, "invalid value for 'campaign_hash' when calling EmailApi.action_enable_email_rss, must conform to the pattern #{pattern}."
+      end
+
       # resource path
-      local_var_path = '/campaigns/email/rss/{campaign_hash}/actions/enable'.sub('{' + 'campaign_hash' + '}', campaign_hash.to_s)
+      local_var_path = '/campaigns/email/rss/{campaign_hash}/actions/enable'.sub('{' + 'campaign_hash' + '}', CGI.escape(campaign_hash.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AcceptedResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"EmailApi.action_enable_email_rss",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AcceptedResponse')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailApi#action_enable_email_rss\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -74,8 +89,8 @@ module EgoiRubyClient
 
     # Send email message
     # Deploys and sends an email message
-    # @param campaign_hash ID of the Campaign
-    # @param campaign_email_send_request Parameters for the &#39;send email&#39; action
+    # @param campaign_hash [String] ID of the Campaign
+    # @param campaign_email_send_request [CampaignEmailSendRequest] Parameters for the &#39;send email&#39; action
     # @param [Hash] opts the optional parameters
     # @return [AcceptedResponse]
     def action_send_email(campaign_hash, campaign_email_send_request, opts = {})
@@ -85,10 +100,10 @@ module EgoiRubyClient
 
     # Send email message
     # Deploys and sends an email message
-    # @param campaign_hash ID of the Campaign
-    # @param campaign_email_send_request Parameters for the &#39;send email&#39; action
+    # @param campaign_hash [String] ID of the Campaign
+    # @param campaign_email_send_request [CampaignEmailSendRequest] Parameters for the &#39;send email&#39; action
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AcceptedResponse, Fixnum, Hash)>] AcceptedResponse data, response status code and response headers
+    # @return [Array<(AcceptedResponse, Integer, Hash)>] AcceptedResponse data, response status code and response headers
     def action_send_email_with_http_info(campaign_hash, campaign_email_send_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailApi.action_send_email ...'
@@ -97,36 +112,54 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && campaign_hash.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_hash' when calling EmailApi.action_send_email"
       end
+      pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
+      if @api_client.config.client_side_validation && campaign_hash !~ pattern
+        fail ArgumentError, "invalid value for 'campaign_hash' when calling EmailApi.action_send_email, must conform to the pattern #{pattern}."
+      end
+
       # verify the required parameter 'campaign_email_send_request' is set
       if @api_client.config.client_side_validation && campaign_email_send_request.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_email_send_request' when calling EmailApi.action_send_email"
       end
       # resource path
-      local_var_path = '/campaigns/email/{campaign_hash}/actions/send'.sub('{' + 'campaign_hash' + '}', campaign_hash.to_s)
+      local_var_path = '/campaigns/email/{campaign_hash}/actions/send'.sub('{' + 'campaign_hash' + '}', CGI.escape(campaign_hash.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(campaign_email_send_request)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(campaign_email_send_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'AcceptedResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"EmailApi.action_send_email",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AcceptedResponse')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailApi#action_send_email\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -135,7 +168,7 @@ module EgoiRubyClient
 
     # Create new email campaign
     # Create a new email campaign
-    # @param email_campaign_create Parameters for the Email Campaign
+    # @param email_campaign_create [EmailCampaignCreate] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
     # @return [HashcodeCampaign]
     def create_email_campaign(email_campaign_create, opts = {})
@@ -145,9 +178,9 @@ module EgoiRubyClient
 
     # Create new email campaign
     # Create a new email campaign
-    # @param email_campaign_create Parameters for the Email Campaign
+    # @param email_campaign_create [EmailCampaignCreate] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(HashcodeCampaign, Fixnum, Hash)>] HashcodeCampaign data, response status code and response headers
+    # @return [Array<(HashcodeCampaign, Integer, Hash)>] HashcodeCampaign data, response status code and response headers
     def create_email_campaign_with_http_info(email_campaign_create, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailApi.create_email_campaign ...'
@@ -160,28 +193,41 @@ module EgoiRubyClient
       local_var_path = '/campaigns/email'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(email_campaign_create)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(email_campaign_create)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HashcodeCampaign'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"EmailApi.create_email_campaign",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'HashcodeCampaign')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailApi#create_email_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -190,7 +236,7 @@ module EgoiRubyClient
 
     # Create new email rss campaign
     # Create a new email rss campaign
-    # @param email_rss_campaign_create Parameters for the Email Campaign
+    # @param email_rss_campaign_create [EmailRssCampaignCreate] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
     # @return [HashcodeCampaign]
     def create_email_rss_campaign(email_rss_campaign_create, opts = {})
@@ -200,9 +246,9 @@ module EgoiRubyClient
 
     # Create new email rss campaign
     # Create a new email rss campaign
-    # @param email_rss_campaign_create Parameters for the Email Campaign
+    # @param email_rss_campaign_create [EmailRssCampaignCreate] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(HashcodeCampaign, Fixnum, Hash)>] HashcodeCampaign data, response status code and response headers
+    # @return [Array<(HashcodeCampaign, Integer, Hash)>] HashcodeCampaign data, response status code and response headers
     def create_email_rss_campaign_with_http_info(email_rss_campaign_create, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailApi.create_email_rss_campaign ...'
@@ -215,28 +261,41 @@ module EgoiRubyClient
       local_var_path = '/campaigns/email/rss'
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(email_rss_campaign_create)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(email_rss_campaign_create)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HashcodeCampaign'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"EmailApi.create_email_rss_campaign",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'HashcodeCampaign')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailApi#create_email_rss_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -245,8 +304,8 @@ module EgoiRubyClient
 
     # Update a specific email campaign
     # Update email campaign
-    # @param campaign_hash ID of the Campaign
-    # @param email_campaign_patch Parameters for the Email Campaign
+    # @param campaign_hash [String] ID of the Campaign
+    # @param email_campaign_patch [EmailCampaignPatch] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
     # @return [HashcodeCampaign]
     def patch_email_campaign(campaign_hash, email_campaign_patch, opts = {})
@@ -256,10 +315,10 @@ module EgoiRubyClient
 
     # Update a specific email campaign
     # Update email campaign
-    # @param campaign_hash ID of the Campaign
-    # @param email_campaign_patch Parameters for the Email Campaign
+    # @param campaign_hash [String] ID of the Campaign
+    # @param email_campaign_patch [EmailCampaignPatch] Parameters for the Email Campaign
     # @param [Hash] opts the optional parameters
-    # @return [Array<(HashcodeCampaign, Fixnum, Hash)>] HashcodeCampaign data, response status code and response headers
+    # @return [Array<(HashcodeCampaign, Integer, Hash)>] HashcodeCampaign data, response status code and response headers
     def patch_email_campaign_with_http_info(campaign_hash, email_campaign_patch, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: EmailApi.patch_email_campaign ...'
@@ -268,41 +327,58 @@ module EgoiRubyClient
       if @api_client.config.client_side_validation && campaign_hash.nil?
         fail ArgumentError, "Missing the required parameter 'campaign_hash' when calling EmailApi.patch_email_campaign"
       end
+      pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
+      if @api_client.config.client_side_validation && campaign_hash !~ pattern
+        fail ArgumentError, "invalid value for 'campaign_hash' when calling EmailApi.patch_email_campaign, must conform to the pattern #{pattern}."
+      end
+
       # verify the required parameter 'email_campaign_patch' is set
       if @api_client.config.client_side_validation && email_campaign_patch.nil?
         fail ArgumentError, "Missing the required parameter 'email_campaign_patch' when calling EmailApi.patch_email_campaign"
       end
       # resource path
-      local_var_path = '/campaigns/email/{campaign_hash}'.sub('{' + 'campaign_hash' + '}', campaign_hash.to_s)
+      local_var_path = '/campaigns/email/{campaign_hash}'.sub('{' + 'campaign_hash' + '}', CGI.escape(campaign_hash.to_s))
 
       # query parameters
-      query_params = {}
+      query_params = opts[:query_params] || {}
 
       # header parameters
-      header_params = {}
+      header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
       # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
 
       # form parameters
-      form_params = {}
+      form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(email_campaign_patch)
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(email_campaign_patch)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'HashcodeCampaign'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['Apikey']
+
+      new_options = opts.merge(
+        :operation => :"EmailApi.patch_email_campaign",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'HashcodeCampaign')
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EmailApi#patch_email_campaign\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
-
   end
 end

@@ -1,12 +1,26 @@
 # EgoiRubyClient::CampaignEmailRssContentHtml
 
 ## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**plain_text** | **String** | Plain text for the campaign | [optional] 
-**snippet** | **String** | Snippet text for the campaign | [optional] 
-**type** | **String** |  | [optional] 
-**body** | **String** | HTML code of the rss campaign | [optional] 
-**feed** | **String** | Valid url for a rss feed | [optional] 
 
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **type** | **String** |  |  |
+| **body** | **String** | HTML code of the rss campaign |  |
+| **feed** | **String** | Valid url for a rss feed | [optional] |
+| **plain_text** | **String** | Plain text for the campaign | [optional] |
+| **snippet** | **String** | Snippet text for the campaign | [optional] |
+
+## Example
+
+```ruby
+require 'egoi-ruby-client'
+
+instance = EgoiRubyClient::CampaignEmailRssContentHtml.new(
+  type: html,
+  body: &lt;body&gt;{{FEEDBLOCK:https:\/\/example.com\/?feed&#x3D;egoi_rssfeed_gcoUFuaaBeAs4tfSY}}{{FEEDITEMS:count&#x3D;1}}&lt;div class&#x3D;&#39;builder-actions-control selected&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; class&#x3D;&#39;email-container&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: auto;&#39; width&#x3D;&#39;600&#39; align&#x3D;&#39;center&#39; data-compile&#x3D;&#39;true&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td dir&#x3D;&#39;ltr&#39; valign&#x3D;&#39;top&#39; width&#x3D;&#39;100%&#39; bgcolor&#x3D;&#39;#ffffff&#39; style&#x3D;&#39;background-color: rgb(255, 255, 255); padding: 20px;&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; class&#x3D;&#39;row&#39; width&#x3D;&#39;100%&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th class&#x3D;&#39;stack-column-center columns first&#39; valign&#x3D;&#39;top&#39; width&#x3D;&#39;33.333333333333336%&#39; style&#x3D;&#39;font-weight: 400; padding-right: 8px;&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; width&#x3D;&#39;100%&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td dir&#x3D;&#39;ltr&#39; style&#x3D;&#39;padding: 0px;&#39; valign&#x3D;&#39;top&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; class&#x3D;&#39;builder-image-control image-6cbc6cd4b0f6c869b1d651e4288caa1c&#39; data-control&#x3D;&#39;image&#39; width&#x3D;&#39;100%&#39; data-compile&#x3D;&#39;true&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td valign&#x3D;&#39;top&#39; style&#x3D;&#39;&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; align&#x3D;&#39;center&#39; width&#x3D;&#39;&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style&#x3D;&#39;border: 0px;&#39;&gt;&lt;a href&#x3D;&#39;{{FEEDITEM:LINK}}&#39;&gt;&lt;img align&#x3D;&#39;center&#39; border&#x3D;&#39;0&#39; class&#x3D;&#39;float-center fluid&#39; style&#x3D;&#39;display: block; margin: 0px auto; height: auto; max-width: 179px; border: 0px !important; outline: none !important; text-decoration: none !important;&#39; src&#x3D;&#39;{{FEEDITEM:IMAGE}}&#39; alt&#x3D;&#39;beanie-768x768&#39; height&#x3D;&#39;179&#39; width&#x3D;&#39;179&#39;&gt;&lt;\/a&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/th&gt;&lt;th class&#x3D;&#39;stack-column-center columns last&#39; valign&#x3D;&#39;top&#39; width&#x3D;&#39;66.66666666666667%&#39; style&#x3D;&#39;font-weight: 400; padding-left: 8px;&#39;&gt;&lt;table border&#x3D;&#39;0&#39; cellpadding&#x3D;&#39;0&#39; cellspacing&#x3D;&#39;0&#39; width&#x3D;&#39;100%&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td dir&#x3D;&#39;ltr&#39; style&#x3D;&#39;padding: 0px;&#39; valign&#x3D;&#39;top&#39;&gt;&lt;table data-control&#x3D;&#39;title&#39; width&#x3D;&#39;100%&#39; class&#x3D;&#39;title-641c2ce04833885b026fd1e0f46c2973&#39; id&#x3D;&#39;641c2ce0-4833-885b-026f-d1e0f46c2973&#39; data-compile&#x3D;&#39;true&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style&#x3D;&#39;&#39;&gt;&lt;p style&#x3D;&#39;font-family: Arial; font-size: 24px; color: rgb(0, 0, 0); line-height: 150%; text-align: left; padding-top: 0px; padding-bottom: 0px; margin: 0px;&#39;&gt;{{FEEDITEM:TITLE}}&lt;\/p&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;table data-control&#x3D;&#39;paragraph&#39; width&#x3D;&#39;100%&#39; class&#x3D;&#39;paragraph-12fc4dd322cf0a3cd43032e85db67593&#39; id&#x3D;&#39;12fc4dd3-22cf-0a3c-d430-32e85db67593&#39; data-compile&#x3D;&#39;true&#39; style&#x3D;&#39;border-spacing: 0px; border-collapse: collapse; table-layout: fixed; margin: 0px auto;&#39;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class&#x3D;&#39;undefined&#39; style&#x3D;&#39;&#39;&gt;&lt;p style&#x3D;&#39;font-family: Arial; font-size: 16px; color: rgb(109, 109, 109); line-height: 200%; text-align: left; padding-top: 0px; padding-bottom: 0px; margin: 0px; overflow: hidden;&#39;&gt;{{FEEDITEM:DESCRIPTION}}&lt;\/p&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/th&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/td&gt;&lt;\/tr&gt;&lt;\/tbody&gt;&lt;\/table&gt;&lt;\/div&gt;{{ENDFEEDITEMS}}{{ENDFEEDBLOCK}}&lt;\/body&gt;,
+  feed: https://example.com/?feed&#x3D;egoi_rssfeed_gcoUFuaaBeAs4tfSY,
+  plain_text: null,
+  snippet: null
+)
+```
 

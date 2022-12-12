@@ -1,13 +1,49 @@
 # EgoiRubyClient::CampaignSmartSmsSendRequest
 
-## Properties
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**list_id** | **Integer** |  | [optional] 
-**destination_field** | **String** | Smart SMS campaign destination field. Must be &#39;cellphone&#39; or the other field ID of type                                 cellphone | [optional] 
-**segments** | [**SmartSmsSegmentsActionSend**](SmartSmsSegmentsActionSend.md) |  | [optional] 
-**limit_hour** | [**LimitHourActionSendLimitHour**](LimitHourActionSendLimitHour.md) |  | [optional] 
-**notify** | **Array&lt;Integer&gt;** | Array of IDs of the users to notify | [optional] 
-**schedule_date** | **DateTime** | The date and time | [optional] 
+## Class instance methods
 
+### `openapi_one_of`
+
+Returns the list of classes defined in oneOf.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignSmartSmsSendRequest.openapi_one_of
+# =>
+# [
+#   :'CampaignSmartSmsScheduleRequest',
+#   :'SendSmartSms'
+# ]
+```
+
+### build
+
+Find the appropriate object from the `openapi_one_of` list and casts the data into it.
+
+#### Example
+
+```ruby
+require 'egoi-ruby-client'
+
+EgoiRubyClient::CampaignSmartSmsSendRequest.build(data)
+# => #<CampaignSmartSmsScheduleRequest:0x00007fdd4aab02a0>
+
+EgoiRubyClient::CampaignSmartSmsSendRequest.build(data_that_doesnt_match)
+# => nil
+```
+
+#### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| **data** | **Mixed** | data to be matched against the list of oneOf items |
+
+#### Return type
+
+- `CampaignSmartSmsScheduleRequest`
+- `SendSmartSms`
+- `nil` (if no type matches)
 
