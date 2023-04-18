@@ -854,7 +854,8 @@ opts = {
   offset: 56, # Integer | Element offset (starting at zero for the first element)
   limit: 56, # Integer | Number of items to return
   date_min: Time.parse('2013-10-20T19:20:30+01:00'), # Time | Start date
-  date_max: Time.parse('2013-10-20T19:20:30+01:00') # Time | End date
+  date_max: Time.parse('2013-10-20T19:20:30+01:00'), # Time | End date
+  action_name: 'email_open' # String | Action data to return
 }
 
 begin
@@ -894,6 +895,7 @@ end
 | **limit** | **Integer** | Number of items to return | [optional][default to 10] |
 | **date_min** | **Time** | Start date | [optional] |
 | **date_max** | **Time** | End date | [optional] |
+| **action_name** | **String** | Action data to return | [optional] |
 
 ### Return type
 

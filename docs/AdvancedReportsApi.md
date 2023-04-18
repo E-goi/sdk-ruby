@@ -8,10 +8,10 @@ All URIs are relative to *https://api.egoiapp.com*
 | [**generate_email_clicks_by_contact_report**](AdvancedReportsApi.md#generate_email_clicks_by_contact_report) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report |
 | [**generate_email_clicks_by_url_report**](AdvancedReportsApi.md#generate_email_clicks_by_url_report) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report |
 | [**generate_email_events_report**](AdvancedReportsApi.md#generate_email_events_report) | **POST** /reports/advanced/email-events | Generate email events report |
-| [**generate_email_sms_report**](AdvancedReportsApi.md#generate_email_sms_report) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report |
 | [**generate_email_unsubscriptions_report**](AdvancedReportsApi.md#generate_email_unsubscriptions_report) | **POST** /reports/advanced/email-unsubscriptions | Generate email unsubscriptions report |
 | [**generate_form_answers_report**](AdvancedReportsApi.md#generate_form_answers_report) | **POST** /reports/advanced/form-answers | Generate form answers report |
 | [**generate_sends_report**](AdvancedReportsApi.md#generate_sends_report) | **POST** /reports/advanced/sends | Generate sends report |
+| [**generate_sms_bounces_report**](AdvancedReportsApi.md#generate_sms_bounces_report) | **POST** /reports/advanced/sms-bounces | Generate SMS bounces report |
 | [**generate_sms_events_report**](AdvancedReportsApi.md#generate_sms_events_report) | **POST** /reports/advanced/sms-events | Generate SMS events report |
 | [**generate_subscriptions_report**](AdvancedReportsApi.md#generate_subscriptions_report) | **POST** /reports/advanced/subscriptions | Generate subscriptions report |
 | [**generate_unsubscriptions_report**](AdvancedReportsApi.md#generate_unsubscriptions_report) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report |
@@ -111,7 +111,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::AdvancedReportsApi.new
-generate_email_clicks_by_contact_report = EgoiRubyClient::GenerateEmailClicksByContactReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailClicksByContactColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailClicksByContactListStatsFields.new({clicks: false}), campaign_fields: EgoiRubyClient::EmailClicksByContactCampaignFields.new({internal_name: false, campaign_hash: false, url: false, city: false, country: false, region: false, program: false, os: false})}), options: EgoiRubyClient::AdvancedReportEmailClicksByContactOptions.new}) # GenerateEmailClicksByContactReport | Parameters for the email clicks by contact report
+generate_email_clicks_by_contact_report = EgoiRubyClient::GenerateEmailClicksByContactReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailClicksByContactColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailClicksByContactListStatsFields.new({clicks: false}), campaign_fields: EgoiRubyClient::EmailClicksByContactCampaignFields.new({internal_name: false, campaign_hash: false, url: false})}), options: EgoiRubyClient::AdvancedReportEmailClicksByContactOptions.new}) # GenerateEmailClicksByContactReport | Parameters for the email clicks by contact report
 
 begin
   # Generate email clicks by contact report
@@ -182,7 +182,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::AdvancedReportsApi.new
-generate_email_clicks_by_url_report = EgoiRubyClient::GenerateEmailClicksByUrlReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailClicksByUrlColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailClicksByUrlListStatsFields.new({clicks: false, unique_clicks: false, click_rate_per_url: false}), campaign_fields: EgoiRubyClient::EmailClicksByUrlCampaignFields.new({internal_name: false, campaign_hash: false, url: false, city: false, country: false, region: false, program: false, os: false})}), options: EgoiRubyClient::AdvancedReportEmailClicksByUrlOptions.new}) # GenerateEmailClicksByUrlReport | Parameters for the email clicks by URL report
+generate_email_clicks_by_url_report = EgoiRubyClient::GenerateEmailClicksByUrlReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailClicksByUrlColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailClicksByUrlListStatsFields.new({clicks: false, unique_clicks: false, click_rate_per_url: false}), campaign_fields: EgoiRubyClient::EmailClicksByUrlCampaignFields.new({internal_name: false, campaign_hash: false, url: false})}), options: EgoiRubyClient::AdvancedReportEmailClicksByUrlOptions.new}) # GenerateEmailClicksByUrlReport | Parameters for the email clicks by URL report
 
 begin
   # Generate email clicks by URL report
@@ -253,7 +253,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::AdvancedReportsApi.new
-generate_email_events_report = EgoiRubyClient::GenerateEmailEventsReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailEventsColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailEventsListStatsFields.new({opens: false, clicks: false, complaints: false, unsubscribes: false, bounces: false, forwards: false, forwards_conversion: false, fb_likes: false, fb_shares: false, tw_shares: false, social_shares: false}), campaign_fields: EgoiRubyClient::EmailEventsCampaignFields.new({internal_name: false, campaign_hash: false, send_date: false, group: false, city: false, country: false, region: false, program: false, os: false})}), options: EgoiRubyClient::AdvancedReportEmailEventsOptions.new({include_unopens: false})}) # GenerateEmailEventsReport | Parameters for the email events report
+generate_email_events_report = EgoiRubyClient::GenerateEmailEventsReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportEmailEventsColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::EmailEventsListStatsFields.new({opens: false, clicks: false, complaints: false, unsubscribes: false, bounces: false, forwards: false, forwards_conversion: false, fb_likes: false, fb_shares: false, tw_shares: false, social_shares: false}), campaign_fields: EgoiRubyClient::EmailEventsCampaignFields.new({internal_name: false, campaign_hash: false, send_date: false, group: false})}), options: EgoiRubyClient::AdvancedReportEmailEventsOptions.new({include_unopens: false})}) # GenerateEmailEventsReport | Parameters for the email events report
 
 begin
   # Generate email events report
@@ -287,77 +287,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **generate_email_events_report** | [**GenerateEmailEventsReport**](GenerateEmailEventsReport.md) | Parameters for the email events report |  |
-
-### Return type
-
-[**AcceptedResponse**](AcceptedResponse.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## generate_email_sms_report
-
-> <AcceptedResponse> generate_email_sms_report(generate_sms_bounces_report)
-
-Generate SMS bounces report
-
-Generates a new SMS bounces report
-
-### Examples
-
-```ruby
-require 'time'
-require 'egoi-ruby-client'
-# setup authorization
-EgoiRubyClient.configure do |config|
-  # Configure API key authorization: Apikey
-  config.api_key['Apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  # config.api_key_prefix['Apikey'] = 'Bearer'
-end
-
-api_instance = EgoiRubyClient::AdvancedReportsApi.new
-generate_sms_bounces_report = EgoiRubyClient::GenerateSmsBouncesReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportSmsBouncesColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::SmsBouncesListStatsFields.new({delivery_answer: false, delivery_date: false}), campaign_fields: EgoiRubyClient::SmsBouncesCampaignFields.new({internal_name: false, campaign_hash: false, send_date: false, sender: false})}), options: EgoiRubyClient::AdvancedReportSmsBouncesOptions.new}) # GenerateSmsBouncesReport | Parameters for the SMS bounces report
-
-begin
-  # Generate SMS bounces report
-  result = api_instance.generate_email_sms_report(generate_sms_bounces_report)
-  p result
-rescue EgoiRubyClient::ApiError => e
-  puts "Error when calling AdvancedReportsApi->generate_email_sms_report: #{e}"
-end
-```
-
-#### Using the generate_email_sms_report_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<AcceptedResponse>, Integer, Hash)> generate_email_sms_report_with_http_info(generate_sms_bounces_report)
-
-```ruby
-begin
-  # Generate SMS bounces report
-  data, status_code, headers = api_instance.generate_email_sms_report_with_http_info(generate_sms_bounces_report)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <AcceptedResponse>
-rescue EgoiRubyClient::ApiError => e
-  puts "Error when calling AdvancedReportsApi->generate_email_sms_report_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **generate_sms_bounces_report** | [**GenerateSmsBouncesReport**](GenerateSmsBouncesReport.md) | Parameters for the SMS bounces report |  |
 
 ### Return type
 
@@ -571,6 +500,77 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **generate_sends_report** | [**GenerateSendsReport**](GenerateSendsReport.md) | Parameters for the sends report |  |
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## generate_sms_bounces_report
+
+> <AcceptedResponse> generate_sms_bounces_report(generate_sms_bounces_report)
+
+Generate SMS bounces report
+
+Generates a new SMS bounces report
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::AdvancedReportsApi.new
+generate_sms_bounces_report = EgoiRubyClient::GenerateSmsBouncesReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), campaigns: [EgoiRubyClient::ReportCampaignsAll.new({list_id: 1, type: 'all'})], columns: EgoiRubyClient::AdvancedReportSmsBouncesColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], list_stats_fields: EgoiRubyClient::SmsBouncesListStatsFields.new({delivery_answer: false, delivery_date: false}), campaign_fields: EgoiRubyClient::SmsBouncesCampaignFields.new({internal_name: false, campaign_hash: false, send_date: false, sender: false})}), options: EgoiRubyClient::AdvancedReportSmsBouncesOptions.new}) # GenerateSmsBouncesReport | Parameters for the SMS bounces report
+
+begin
+  # Generate SMS bounces report
+  result = api_instance.generate_sms_bounces_report(generate_sms_bounces_report)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_sms_bounces_report: #{e}"
+end
+```
+
+#### Using the generate_sms_bounces_report_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AcceptedResponse>, Integer, Hash)> generate_sms_bounces_report_with_http_info(generate_sms_bounces_report)
+
+```ruby
+begin
+  # Generate SMS bounces report
+  data, status_code, headers = api_instance.generate_sms_bounces_report_with_http_info(generate_sms_bounces_report)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AcceptedResponse>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_sms_bounces_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **generate_sms_bounces_report** | [**GenerateSmsBouncesReport**](GenerateSmsBouncesReport.md) | Parameters for the SMS bounces report |  |
 
 ### Return type
 

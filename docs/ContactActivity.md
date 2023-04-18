@@ -15,7 +15,10 @@ EgoiRubyClient::ContactActivity.openapi_one_of
 # =>
 # [
 #   :'ContactActivityClick',
-#   :'ContactOtherActivity'
+#   :'ContactAutomationsActivity',
+#   :'ContactCampaignActivity',
+#   :'ContactOtherActivity',
+#   :'ContactTagActivity'
 # ]
 ```
 
@@ -44,6 +47,9 @@ EgoiRubyClient::ContactActivity.build(data_that_doesnt_match)
 #### Return type
 
 - `ContactActivityClick`
+- `ContactAutomationsActivity`
+- `ContactCampaignActivity`
 - `ContactOtherActivity`
+- `ContactTagActivity`
 - `nil` (if no type matches)
 

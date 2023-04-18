@@ -384,7 +384,7 @@ end
 
 ## get_all_fields
 
-> <FieldCollection> get_all_fields(list_id, opts)
+> <Array<ComplexField>> get_all_fields(list_id, opts)
 
 Get all fields
 
@@ -423,7 +423,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<FieldCollection>, Integer, Hash)> get_all_fields_with_http_info(list_id, opts)
+> <Array(<Array<ComplexField>>, Integer, Hash)> get_all_fields_with_http_info(list_id, opts)
 
 ```ruby
 begin
@@ -431,7 +431,7 @@ begin
   data, status_code, headers = api_instance.get_all_fields_with_http_info(list_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <FieldCollection>
+  p data # => <Array<ComplexField>>
 rescue EgoiRubyClient::ApiError => e
   puts "Error when calling FieldsApi->get_all_fields_with_http_info: #{e}"
 end
@@ -447,7 +447,7 @@ end
 
 ### Return type
 
-[**FieldCollection**](FieldCollection.md)
+[**Array&lt;ComplexField&gt;**](ComplexField.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@
 | **file** | [**ImportBulkFileRequestSchemaFile**](ImportBulkFileRequestSchemaFile.md) |  |  |
 | **force_empty** | **Boolean** | If &#39;true&#39; accepts empty values and erases those fields | [optional][default to false] |
 | **notify** | **Array&lt;Integer&gt;** | Array of IDs of the users to notify | [optional] |
-| **callback_url** | **String** | Url to receive the report | [optional] |
+| **callback_url** | **String** | Url to receive the report &lt;a href&#x3D;&#39;/usecases/callbacks/#import-collection-of-contacts&#39; target&#x3D;&#39;_blank&#39;&gt;[Go to callback documentation]&lt;/a&gt; | [optional] |
 
 ## Example
 

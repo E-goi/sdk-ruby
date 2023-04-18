@@ -15,7 +15,7 @@ All URIs are relative to *https://api.egoiapp.com*
 
 Create new webhook
 
-Create a new webhook
+Create a new webhook <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Examples
 
@@ -156,7 +156,7 @@ nil (empty response body)
 
 Get all webhooks
 
-Returns all webhooks
+Returns all webhooks <a href='/usecases/webhooks/' target='_blank'>[Go to webhooks documentation]</a>
 
 ### Examples
 

@@ -1,7 +1,7 @@
 =begin
 #APIv3 (New)
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
+# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
 The version of the OpenAPI document: 3.0.0
 
@@ -28,19 +28,31 @@ module EgoiRubyClient
     # True to include the group of the campaign, false otherwise
     attr_accessor :group
 
-    # True to include city information, false otherwise
+    # True to include the channel of the campaign, false otherwise
+    attr_accessor :channel
+
+    # True to include the type of the campaign, false otherwise
+    attr_accessor :type
+
+    # True to include the URL of the campaign, false otherwise
+    attr_accessor :url
+
+    # True to include the sender of the campaign, false otherwise
+    attr_accessor :sender
+
+    # True to include city information, false otherwise (deprecated)
     attr_accessor :city
 
-    # True to include country information, false otherwise
+    # True to include country information, false otherwise (deprecated)
     attr_accessor :country
 
-    # True to include region information, false otherwise
+    # True to include region information, false otherwise (deprecated)
     attr_accessor :region
 
-    # True to include device program information, false otherwise
+    # True to include device program information, false otherwise (deprecated)
     attr_accessor :program
 
-    # True to include operating system information, false otherwise
+    # True to include operating system information, false otherwise (deprecated)
     attr_accessor :os
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -50,6 +62,10 @@ module EgoiRubyClient
         :'campaign_hash' => :'campaign_hash',
         :'send_date' => :'send_date',
         :'group' => :'group',
+        :'channel' => :'channel',
+        :'type' => :'type',
+        :'url' => :'url',
+        :'sender' => :'sender',
         :'city' => :'city',
         :'country' => :'country',
         :'region' => :'region',
@@ -70,6 +86,10 @@ module EgoiRubyClient
         :'campaign_hash' => :'Boolean',
         :'send_date' => :'Boolean',
         :'group' => :'Boolean',
+        :'channel' => :'Boolean',
+        :'type' => :'Boolean',
+        :'url' => :'Boolean',
+        :'sender' => :'Boolean',
         :'city' => :'Boolean',
         :'country' => :'Boolean',
         :'region' => :'Boolean',
@@ -115,6 +135,22 @@ module EgoiRubyClient
         self.group = attributes[:'group']
       end
 
+      if attributes.key?(:'channel')
+        self.channel = attributes[:'channel']
+      end
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'url')
+        self.url = attributes[:'url']
+      end
+
+      if attributes.key?(:'sender')
+        self.sender = attributes[:'sender']
+      end
+
       if attributes.key?(:'city')
         self.city = attributes[:'city']
       end
@@ -156,26 +192,6 @@ module EgoiRubyClient
         invalid_properties.push('invalid value for "group", group cannot be nil.')
       end
 
-      if @city.nil?
-        invalid_properties.push('invalid value for "city", city cannot be nil.')
-      end
-
-      if @country.nil?
-        invalid_properties.push('invalid value for "country", country cannot be nil.')
-      end
-
-      if @region.nil?
-        invalid_properties.push('invalid value for "region", region cannot be nil.')
-      end
-
-      if @program.nil?
-        invalid_properties.push('invalid value for "program", program cannot be nil.')
-      end
-
-      if @os.nil?
-        invalid_properties.push('invalid value for "os", os cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -186,11 +202,6 @@ module EgoiRubyClient
       return false if @campaign_hash.nil?
       return false if @send_date.nil?
       return false if @group.nil?
-      return false if @city.nil?
-      return false if @country.nil?
-      return false if @region.nil?
-      return false if @program.nil?
-      return false if @os.nil?
       true
     end
 
@@ -203,6 +214,10 @@ module EgoiRubyClient
           campaign_hash == o.campaign_hash &&
           send_date == o.send_date &&
           group == o.group &&
+          channel == o.channel &&
+          type == o.type &&
+          url == o.url &&
+          sender == o.sender &&
           city == o.city &&
           country == o.country &&
           region == o.region &&
@@ -219,7 +234,7 @@ module EgoiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [internal_name, campaign_hash, send_date, group, city, country, region, program, os].hash
+      [internal_name, campaign_hash, send_date, group, channel, type, url, sender, city, country, region, program, os].hash
     end
 
     # Builds the object from hash
