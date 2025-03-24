@@ -31,7 +31,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::SmsApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 campaign_sms_send_request = EgoiRubyClient::CampaignSmsScheduleRequest.new({list_id: 1, destination_field: 'cellphone', segments: EgoiRubyClient::SendContactCellphone.new({type: 'contact', data: '351-300404336'})}) # CampaignSmsSendRequest | Parameters for the 'send sms' action
 
 begin
@@ -65,7 +65,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **campaign_sms_send_request** | [**CampaignSmsSendRequest**](CampaignSmsSendRequest.md) | Parameters for the &#39;send sms&#39; action |  |
 
 ### Return type
@@ -175,7 +175,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::SmsApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 sms_campaign_patch_request = EgoiRubyClient::SmsCampaignPatchRequest.new # SmsCampaignPatchRequest | Parameters for the Sms Campaign
 
 begin
@@ -209,7 +209,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **sms_campaign_patch_request** | [**SmsCampaignPatchRequest**](SmsCampaignPatchRequest.md) | Parameters for the Sms Campaign |  |
 
 ### Return type

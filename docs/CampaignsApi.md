@@ -30,7 +30,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::CampaignsApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 
 begin
   # Remove Campaign
@@ -62,7 +62,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 
 ### Return type
 
@@ -173,7 +173,7 @@ end
 | **schedule_date_min** | **Time** | Schedule Date initial | [optional] |
 | **schedule_date_max** | **Time** | Schedule Date finish | [optional] |
 | **offset** | **Integer** | Element offset (starting at zero for the first element) | [optional] |
-| **limit** | **Integer** | Number of items to return | [optional][default to 10] |
+| **limit** | **Integer** | Number of items to return | [optional][default to 100] |
 | **order** | **String** | Type of order | [optional][default to &#39;desc&#39;] |
 | **order_by** | **String** | Reference attribute to order campaigns | [optional][default to &#39;created&#39;] |
 

@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **id** | **Integer** |  | [optional][readonly] |
 | **campaign_hash** | **String** |  | [optional][readonly] |
 | **status** | **String** | Status of the campaign | [optional] |
 | **thumbnail** | **String** | Thumbnail of the campaign | [optional] |
@@ -18,6 +19,8 @@
 | **start_date** | **Time** |  | [optional] |
 | **end_date** | **Time** |  | [optional] |
 | **schedule_date** | [**CampaignScheduleDate**](CampaignScheduleDate.md) |  | [optional] |
+| **processed_messages** | **Integer** | Total number of processed messages | [optional] |
+| **automation_id** | **Integer** | The automation id of the campaign | [optional] |
 
 ## Example
 
@@ -25,6 +28,7 @@
 require 'egoi-ruby-client'
 
 instance = EgoiRubyClient::Campaign.new(
+  id: 1,
   campaign_hash: null,
   status: sent,
   thumbnail: //bo29.e-goi.com/recursos/resource_folder/listas/name_image.jpg,
@@ -38,7 +42,9 @@ instance = EgoiRubyClient::Campaign.new(
   updated: null,
   start_date: null,
   end_date: null,
-  schedule_date: null
+  schedule_date: null,
+  processed_messages: 1,
+  automation_id: 1
 )
 ```
 

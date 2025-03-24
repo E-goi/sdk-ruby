@@ -13,9 +13,9 @@
 | **language** | [**Language**](Language.md) |  | [optional][default to &#39;en&#39;] |
 | **email** | **String** | Email of the contact | [optional] |
 | **email_status** | **String** | Email channel status | [optional] |
-| **cellphone** | **String** | Cellphone of the contact | [optional] |
+| **cellphone** | **String** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] |
 | **cellphone_status** | **String** | Cellphone channel status | [optional] |
-| **phone** | **String** | Phone of the contact | [optional] |
+| **phone** | **String** | Phone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] |
 | **phone_status** | **String** | Phone channel status | [optional] |
 
 ## Example

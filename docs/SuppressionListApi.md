@@ -31,7 +31,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::SuppressionListApi.new
-create_suppression_list_request = EgoiRubyClient::SuppressionTypeCellphone.new({type: 'email', value: ['351-300404336']}) # CreateSuppressionListRequest | Parameters for the request
+create_suppression_list_request = EgoiRubyClient::SuppressionTypeCellphone.new({type: 'email', value: ['351-3010404336']}) # CreateSuppressionListRequest | Parameters for the request
 
 begin
   # Add to suppression list

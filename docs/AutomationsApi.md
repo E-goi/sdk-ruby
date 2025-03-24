@@ -5,6 +5,7 @@ All URIs are relative to *https://api.egoiapp.com*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**delete_automation**](AutomationsApi.md#delete_automation) | **DELETE** /automations/{automation_id} | Remove automation |
+| [**get_all_actions**](AutomationsApi.md#get_all_actions) | **GET** /automations/{automation_id}/actions | Get all actions from given automation |
 | [**get_all_automations**](AutomationsApi.md#get_all_automations) | **GET** /automations | Get all automations |
 
 
@@ -67,6 +68,83 @@ end
 ### Return type
 
 nil (empty response body)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_all_actions
+
+> <AutomationActionsCollection> get_all_actions(opts)
+
+Get all actions from given automation
+
+Returns all actions
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::AutomationsApi.new
+opts = {
+  automation_id: 56, # Integer | Reference attribute to automation id
+  offset: 56, # Integer | Element offset (starting at zero for the first element)
+  limit: 56 # Integer | Number of items to return
+}
+
+begin
+  # Get all actions from given automation
+  result = api_instance.get_all_actions(opts)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AutomationsApi->get_all_actions: #{e}"
+end
+```
+
+#### Using the get_all_actions_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AutomationActionsCollection>, Integer, Hash)> get_all_actions_with_http_info(opts)
+
+```ruby
+begin
+  # Get all actions from given automation
+  data, status_code, headers = api_instance.get_all_actions_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AutomationActionsCollection>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AutomationsApi->get_all_actions_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **automation_id** | **Integer** | Reference attribute to automation id | [optional] |
+| **offset** | **Integer** | Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **Integer** | Number of items to return | [optional][default to 10] |
+
+### Return type
+
+[**AutomationActionsCollection**](AutomationActionsCollection.md)
 
 ### Authorization
 

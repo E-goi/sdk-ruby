@@ -15,6 +15,7 @@ EgoiRubyClient::DetachTagRequest.openapi_one_of
 # =>
 # [
 #   :'DetachByContacts',
+#   :'DetachByFieldId',
 #   :'DetachBySegment'
 # ]
 ```
@@ -44,6 +45,7 @@ EgoiRubyClient::DetachTagRequest.build(data_that_doesnt_match)
 #### Return type
 
 - `DetachByContacts`
+- `DetachByFieldId`
 - `DetachBySegment`
 - `nil` (if no type matches)
 

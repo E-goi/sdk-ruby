@@ -35,7 +35,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::WebpushApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 
 begin
   # Enable a rss webpush campaign
@@ -68,7 +68,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 
 ### Return type
 
@@ -106,7 +106,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::WebpushApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 campaign_web_push_send_request = EgoiRubyClient::CampaignWebPushScheduleRequest.new({site_id: 1, segments: EgoiRubyClient::SendNone.new({type: 'none'})}) # CampaignWebPushSendRequest | Parameters for the 'send web-push' action
 
 begin
@@ -140,7 +140,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **campaign_web_push_send_request** | [**CampaignWebPushSendRequest**](CampaignWebPushSendRequest.md) | Parameters for the &#39;send web-push&#39; action |  |
 
 ### Return type
@@ -473,7 +473,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::WebpushApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 web_push_patch_campaign = EgoiRubyClient::WebPushPatchCampaign.new # WebPushPatchCampaign | Parameters for the Webpush Campaign
 
 begin
@@ -507,7 +507,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **web_push_patch_campaign** | [**WebPushPatchCampaign**](WebPushPatchCampaign.md) | Parameters for the Webpush Campaign |  |
 
 ### Return type

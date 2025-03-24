@@ -33,7 +33,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::EmailApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 
 begin
   # Enables a rss email campaign
@@ -66,7 +66,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 
 ### Return type
 
@@ -104,7 +104,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::EmailApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 campaign_email_send_request = EgoiRubyClient::CampaignEmailScheduleRequest.new({list_id: 1, segments: EgoiRubyClient::SendEmailContact.new({type: 'contact', data: 'data_example'})}) # CampaignEmailSendRequest | Parameters for the 'send email' action
 
 begin
@@ -138,7 +138,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **campaign_email_send_request** | [**CampaignEmailSendRequest**](CampaignEmailSendRequest.md) | Parameters for the &#39;send email&#39; action |  |
 
 ### Return type
@@ -319,7 +319,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::EmailApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 email_campaign_patch = EgoiRubyClient::EmailCampaignPatch.new # EmailCampaignPatch | Parameters for the Email Campaign
 
 begin
@@ -353,7 +353,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **email_campaign_patch** | [**EmailCampaignPatch**](EmailCampaignPatch.md) | Parameters for the Email Campaign |  |
 
 ### Return type

@@ -31,7 +31,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::VoiceApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 campaign_voice_send_request = EgoiRubyClient::AbstractSendVoice.new({list_id: 1, destination_field: 'phone', segments: EgoiRubyClient::SendContact.new({type: 'contact', data: 'data_example'})}) # CampaignVoiceSendRequest | Parameters for the 'send voice' action
 
 begin
@@ -65,7 +65,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **campaign_voice_send_request** | [**CampaignVoiceSendRequest**](CampaignVoiceSendRequest.md) | Parameters for the &#39;send voice&#39; action |  |
 
 ### Return type
@@ -175,7 +175,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::VoiceApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 voice_patch_campaign = EgoiRubyClient::VoicePatchCampaign.new # VoicePatchCampaign | Parameters for the Voice Campaign
 
 begin
@@ -209,7 +209,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **voice_patch_campaign** | [**VoicePatchCampaign**](VoicePatchCampaign.md) | Parameters for the Voice Campaign |  |
 
 ### Return type

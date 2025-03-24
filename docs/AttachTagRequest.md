@@ -15,6 +15,7 @@ EgoiRubyClient::AttachTagRequest.openapi_one_of
 # =>
 # [
 #   :'AttachByContacts',
+#   :'AttachByFieldId',
 #   :'AttachBySegment'
 # ]
 ```
@@ -44,6 +45,7 @@ EgoiRubyClient::AttachTagRequest.build(data_that_doesnt_match)
 #### Return type
 
 - `AttachByContacts`
+- `AttachByFieldId`
 - `AttachBySegment`
 - `nil` (if no type matches)
 

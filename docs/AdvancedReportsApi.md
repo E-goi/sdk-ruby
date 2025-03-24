@@ -4,6 +4,8 @@ All URIs are relative to *https://api.egoiapp.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**generate_by_model_report**](AdvancedReportsApi.md#generate_by_model_report) | **POST** /reports/advanced/model | Generate report by model |
+| [**generate_contact_activity_report**](AdvancedReportsApi.md#generate_contact_activity_report) | **POST** /reports/advanced/contact-activity | Generate contact activity report |
 | [**generate_email_bounces_report**](AdvancedReportsApi.md#generate_email_bounces_report) | **POST** /reports/advanced/email-bounces | Generate email bounces report |
 | [**generate_email_clicks_by_contact_report**](AdvancedReportsApi.md#generate_email_clicks_by_contact_report) | **POST** /reports/advanced/email-clicks-by-contact | Generate email clicks by contact report |
 | [**generate_email_clicks_by_url_report**](AdvancedReportsApi.md#generate_email_clicks_by_url_report) | **POST** /reports/advanced/email-clicks-by-url | Generate email clicks by URL report |
@@ -16,6 +18,149 @@ All URIs are relative to *https://api.egoiapp.com*
 | [**generate_subscriptions_report**](AdvancedReportsApi.md#generate_subscriptions_report) | **POST** /reports/advanced/subscriptions | Generate subscriptions report |
 | [**generate_unsubscriptions_report**](AdvancedReportsApi.md#generate_unsubscriptions_report) | **POST** /reports/advanced/unsubscriptions | Generate unsubscriptions report |
 | [**get_all_advanced_reports**](AdvancedReportsApi.md#get_all_advanced_reports) | **GET** /reports/advanced | Get all advanced reports |
+| [**get_all_advanced_reports_models**](AdvancedReportsApi.md#get_all_advanced_reports_models) | **GET** /reports/advanced/models | Get all advanced reports models |
+
+
+## generate_by_model_report
+
+> <AcceptedResponse> generate_by_model_report(generate_by_model_report)
+
+Generate report by model
+
+Generates a new report by model Id
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::AdvancedReportsApi.new
+generate_by_model_report = EgoiRubyClient::GenerateByModelReport.new({model_id: 20}) # GenerateByModelReport | Parameters for the report by model Id
+
+begin
+  # Generate report by model
+  result = api_instance.generate_by_model_report(generate_by_model_report)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_by_model_report: #{e}"
+end
+```
+
+#### Using the generate_by_model_report_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AcceptedResponse>, Integer, Hash)> generate_by_model_report_with_http_info(generate_by_model_report)
+
+```ruby
+begin
+  # Generate report by model
+  data, status_code, headers = api_instance.generate_by_model_report_with_http_info(generate_by_model_report)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AcceptedResponse>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_by_model_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **generate_by_model_report** | [**GenerateByModelReport**](GenerateByModelReport.md) | Parameters for the report by model Id |  |
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## generate_contact_activity_report
+
+> <AcceptedResponse> generate_contact_activity_report(generate_contact_activity_report)
+
+Generate contact activity report
+
+Generates a new contact activity report
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::AdvancedReportsApi.new
+generate_contact_activity_report = EgoiRubyClient::GenerateContactActivityReport.new({title: 'Report title', range: EgoiRubyClient::AdvancedReportRange.new({start: 3.56, _end: 3.56}), lists: [1], columns: EgoiRubyClient::AdvancedReportContactActivityColumns.new({list_base_fields: ['list_base_fields_example'], list_extra_fields: [EgoiRubyClient::AdvancedReportListExtraFieldsInner.new], contact_activities: EgoiRubyClient::ContactActivityActivitiesFields.new({opens: false, clicks: false, recommends: false, conversion: false, email_send: false, sms_send: false, sms_report: false, voice_send: false, voice_report: false, invitation_send: false, invitation_open: false, unsubscribe: false, email_soft_bounce: false, email_hard_bounce: false, subscription: false, resubscription: false, unsubscribe_reason: false, facebook_like: false, social_share: false, unsubscribe_manual: false, double_optin: false, email_spam_complaint: false, email_field_disable: false, cellphone_field_disable: false, phone_field_disable: false, unsubscribe_api: false, email_field_enable: false, cellphone_field_enable: false, phone_field_enable: false, edit_subscription: false, automation_event: false, push_send: false, push_delivered: false, push_error: false, push_received: false, push_open: false, push_canceled: false, push_unsubscription: false, reply_to_email: false, web_push_send: false, web_push_delivered: false, web_push_open: false, web_push_bounce: false, web_push_click: false, web_push_subscription: false, web_push_unsubscription: false, forget_subscription: false, change_consent: false, double_optin_resend: false, double_optedit: false})}), options: EgoiRubyClient::AdvancedReportContactActivityOptions.new}) # GenerateContactActivityReport | Parameters for the contact activity report
+
+begin
+  # Generate contact activity report
+  result = api_instance.generate_contact_activity_report(generate_contact_activity_report)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_contact_activity_report: #{e}"
+end
+```
+
+#### Using the generate_contact_activity_report_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AcceptedResponse>, Integer, Hash)> generate_contact_activity_report_with_http_info(generate_contact_activity_report)
+
+```ruby
+begin
+  # Generate contact activity report
+  data, status_code, headers = api_instance.generate_contact_activity_report_with_http_info(generate_contact_activity_report)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AcceptedResponse>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->generate_contact_activity_report_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **generate_contact_activity_report** | [**GenerateContactActivityReport**](GenerateContactActivityReport.md) | Parameters for the contact activity report |  |
+
+### Return type
+
+[**AcceptedResponse**](AcceptedResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
 
 
 ## generate_email_bounces_report
@@ -875,6 +1020,87 @@ end
 ### Return type
 
 [**AdvancedReportsCollection**](AdvancedReportsCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_all_advanced_reports_models
+
+> <AdvancedReportsModelsCollection> get_all_advanced_reports_models(opts)
+
+Get all advanced reports models
+
+Returns all advanced reports
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::AdvancedReportsApi.new
+opts = {
+  title: 'title_example', # String | Advanced report model title
+  offset: 56, # Integer | Element offset (starting at zero for the first element)
+  limit: 56, # Integer | Number of items to return
+  order: 'asc', # String | Type of order
+  order_by: 'model_id' # String | Reference attribute to order the advanced reports
+}
+
+begin
+  # Get all advanced reports models
+  result = api_instance.get_all_advanced_reports_models(opts)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->get_all_advanced_reports_models: #{e}"
+end
+```
+
+#### Using the get_all_advanced_reports_models_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AdvancedReportsModelsCollection>, Integer, Hash)> get_all_advanced_reports_models_with_http_info(opts)
+
+```ruby
+begin
+  # Get all advanced reports models
+  data, status_code, headers = api_instance.get_all_advanced_reports_models_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AdvancedReportsModelsCollection>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling AdvancedReportsApi->get_all_advanced_reports_models_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **title** | **String** | Advanced report model title | [optional] |
+| **offset** | **Integer** | Element offset (starting at zero for the first element) | [optional] |
+| **limit** | **Integer** | Number of items to return | [optional][default to 10] |
+| **order** | **String** | Type of order | [optional][default to &#39;desc&#39;] |
+| **order_by** | **String** | Reference attribute to order the advanced reports | [optional][default to &#39;model_id&#39;] |
+
+### Return type
+
+[**AdvancedReportsModelsCollection**](AdvancedReportsModelsCollection.md)
 
 ### Authorization
 

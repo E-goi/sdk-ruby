@@ -11,8 +11,8 @@
 | **birth_date** | **Date** | Birth date of the contact | [optional] |
 | **language** | [**Language**](Language.md) |  | [optional][default to &#39;en&#39;] |
 | **email** | **String** | Email of the contact | [optional] |
-| **cellphone** | **String** | Cellphone of the contact | [optional] |
-| **phone** | **String** | Phone of the contact | [optional] |
+| **cellphone** | **String** | Cellphone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] |
+| **phone** | **String** | Phone of the contact (country code followed by phone number, split by &#39;-&#39;) | [optional] |
 | **push_token_android** | [**Array&lt;ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner&gt;**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenAndroidInner.md) | Android push token of the contact | [optional] |
 | **push_token_ios** | [**Array&lt;ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner&gt;**](ContactBaseWithStatusNoRemovedFieldsSchemaBasePushTokenIosInner.md) | IOS push token of the contact | [optional] |
 

@@ -21,6 +21,7 @@ All URIs are relative to *https://api.egoiapp.com*
 | [**get_contact**](ContactsApi.md#get_contact) | **GET** /lists/{list_id}/contacts/{contact_id} | Get contact |
 | [**patch_contact**](ContactsApi.md#patch_contact) | **PATCH** /lists/{list_id}/contacts/{contact_id} | Update a specific contact |
 | [**search_contacts**](ContactsApi.md#search_contacts) | **GET** /contacts/search | Search contact |
+| [**update_contact_by_field**](ContactsApi.md#update_contact_by_field) | **POST** /lists/{list_id}/contacts/by-field | Updates a contact by field |
 
 
 ## action_activate_contacts
@@ -1311,5 +1312,78 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_contact_by_field
+
+> <CreateContactResponse> update_contact_by_field(list_id, contact_field_id_base_extra_post)
+
+Updates a contact by field
+
+Updates a contact by field, wich must be unique in list
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ContactsApi.new
+list_id = 56 # Integer | ID of the list where the contact belongs
+contact_field_id_base_extra_post = EgoiRubyClient::ContactFieldIdBaseExtraPost.new # ContactFieldIdBaseExtraPost | Parameters for the Contact Update by Field Id
+
+begin
+  # Updates a contact by field
+  result = api_instance.update_contact_by_field(list_id, contact_field_id_base_extra_post)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling ContactsApi->update_contact_by_field: #{e}"
+end
+```
+
+#### Using the update_contact_by_field_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CreateContactResponse>, Integer, Hash)> update_contact_by_field_with_http_info(list_id, contact_field_id_base_extra_post)
+
+```ruby
+begin
+  # Updates a contact by field
+  data, status_code, headers = api_instance.update_contact_by_field_with_http_info(list_id, contact_field_id_base_extra_post)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CreateContactResponse>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling ContactsApi->update_contact_by_field_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **list_id** | **Integer** | ID of the list where the contact belongs |  |
+| **contact_field_id_base_extra_post** | [**ContactFieldIdBaseExtraPost**](ContactFieldIdBaseExtraPost.md) | Parameters for the Contact Update by Field Id |  |
+
+### Return type
+
+[**CreateContactResponse**](CreateContactResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

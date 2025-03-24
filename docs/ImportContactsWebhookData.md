@@ -8,6 +8,7 @@
 | **updated** | **Integer** |  | [optional] |
 | **ignored** | **Integer** |  | [optional] |
 | **invalid** | **Integer** |  | [optional] |
+| **file** | **String** |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = EgoiRubyClient::ImportContactsWebhookData.new(
   imported: 100,
   updated: 10,
   ignored: 5,
-  invalid: 1
+  invalid: 1,
+  file: example.com
 )
 ```
 

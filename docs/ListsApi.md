@@ -7,6 +7,7 @@ All URIs are relative to *https://api.egoiapp.com*
 | [**create_list**](ListsApi.md#create_list) | **POST** /lists | Create new list |
 | [**delete_list**](ListsApi.md#delete_list) | **DELETE** /lists/{list_id} | Remove list |
 | [**get_all_lists**](ListsApi.md#get_all_lists) | **GET** /lists | Get all lists |
+| [**get_list**](ListsApi.md#get_list) | **GET** /lists/{list_id} | Get list |
 | [**update_list**](ListsApi.md#update_list) | **PATCH** /lists/{list_id} | Update a specific list |
 
 
@@ -231,6 +232,77 @@ end
 ### Return type
 
 [**ListCollection**](ListCollection.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_list
+
+> <ComplexList> get_list(list_id)
+
+Get list
+
+Returns list information given its ID
+
+### Examples
+
+```ruby
+require 'time'
+require 'egoi-ruby-client'
+# setup authorization
+EgoiRubyClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  # config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = EgoiRubyClient::ListsApi.new
+list_id = 56 # Integer | ID of the List
+
+begin
+  # Get list
+  result = api_instance.get_list(list_id)
+  p result
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling ListsApi->get_list: #{e}"
+end
+```
+
+#### Using the get_list_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ComplexList>, Integer, Hash)> get_list_with_http_info(list_id)
+
+```ruby
+begin
+  # Get list
+  data, status_code, headers = api_instance.get_list_with_http_info(list_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ComplexList>
+rescue EgoiRubyClient::ApiError => e
+  puts "Error when calling ListsApi->get_list_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **list_id** | **Integer** | ID of the List |  |
+
+### Return type
+
+[**ComplexList**](ComplexList.md)
 
 ### Authorization
 

@@ -17,7 +17,7 @@
 | **sale_price** | **Float** | Sale price of the product | [optional][default to 0] |
 | **brand** | **String** | Brand of the product | [optional] |
 | **categories** | **Array&lt;String&gt;** | Array of product categories, using the character &#39;&gt;&#39; as delimiter for the breadcrumb                         syntax | [optional] |
-| **related_products** | [**ProductPatchRequestRelatedProducts**](ProductPatchRequestRelatedProducts.md) |  | [optional] |
+| **related_products** | **Array&lt;String&gt;** | Related products, array of &#39;product_identifier&#39; | [optional] |
 | **custom_attributes** | [**Array&lt;ProductCustomAttributes&gt;**](ProductCustomAttributes.md) | Custom attributes | [optional] |
 
 ## Example

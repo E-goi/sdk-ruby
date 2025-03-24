@@ -5,9 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **campaign_hash** | **String** |  | [optional][readonly] |
-| **operating_systems** | **Array&lt;Object&gt;** | Stats of the campaign for each operating system | [optional] |
-| **brands** | **Array&lt;Object&gt;** | Stats of the campaign for each brand | [optional] |
-| **overall** | [**OverallOverall**](OverallOverall.md) |  | [optional] |
+| **overall** | [**PushStats**](PushStats.md) |  | [optional] |
+| **operating_systems** | [**Array&lt;PushReportOperatingSystemsInner&gt;**](PushReportOperatingSystemsInner.md) | Stats of the campaign for each operating system | [optional] |
 
 ## Example
 
@@ -16,9 +15,8 @@ require 'egoi-ruby-client'
 
 instance = EgoiRubyClient::PushReport.new(
   campaign_hash: null,
-  operating_systems: null,
-  brands: null,
-  overall: null
+  overall: null,
+  operating_systems: null
 )
 ```
 

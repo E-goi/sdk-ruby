@@ -11,4 +11,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build egoi-ruby-client.gemspec
-  - gem install ./egoi-ruby-client-1.1.3RC1.gem
+  - gem install ./egoi-ruby-client-1.1.6RC1.gem

@@ -1,9 +1,9 @@
 =begin
-#APIv3 (New)
+#Marketing API
 
-# # Introduction This is our new version of API. We invite you to start using it and give us your feedback # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
+# # Introduction Welcome to the E-goi Marketing API! <br><br>This API enables you to integrate, automate, and manage all the marketing functionalities offered by E-goi. With it, you can interact with contact lists, send email campaigns, SMS, push notifications, and much more. <br><br>Our API is designed to simplify integration in a straightforward, efficient, and secure way, meeting the needs of developers and businesses looking to optimize their digital marketing operations. <br><br>Explore the documentation to discover all the possibilities and start creating integrations that drive your marketing results. # Getting Started  E-goi can be integrated with many environments and programming languages via our REST API. We've created a developer focused portal to give your organization a clear and quick overview of how to integrate with E-goi. The developer portal focuses on scenarios for integration and flow of events. We recommend familiarizing yourself with all of the content in the developer portal, before start using our rest API.  The E-goi  APIv3 is served over HTTPS. To ensure data privacy, unencrypted HTTP is not supported.  Request data is passed to the API by POSTing JSON objects to the API endpoints with the appropriate parameters.      BaseURL = api.egoiapp.com  # RESTful Services This API supports 5 HTTP methods:  * <b>GET</b>: The HTTP GET method is used to **read** (or retrieve) a representation of a resource. * <b>POST</b>: The POST verb is most-often utilized to **create** new resources. * <b>PATCH</b>: PATCH is used for **modify** capabilities. The PATCH request only needs to contain the changes to the resource, not the complete resource * <b>PUT</b>: PUT is most-often utilized for **update** capabilities, PUT-ing to a known resource URI with the request body containing the newly-updated representation of the original resource. * <b>DELETE</b>: DELETE is pretty easy to understand. It is used to **delete** a resource identified by a URI.  # Transport Layer Security (TLS) Transport Layer Security (TLS) is a widely used authentication and encryption protocol that establishes a secure communications channel for data-in-transit while ensuring that the client and server can validate one another.<br> Our API requires TLS 1.2 or TLS 1.3. We recommend <b>TLS 1.3</b>.<br><br> <b>TLS 1.3 ciphers</b> * TLS_AES_256_GCM_SHA384 (0x1302) ECDH x25519 (eq. 3072 bits RSA) FS * TLS_CHACHA20_POLY1305_SHA256 (0x1303) ECDH x25519 (eq. 3072 bits RSA) FS * TLS_AES_128_GCM_SHA256 (0x1301) ECDH x25519 (eq. 3072 bits RSA) FS  <b>TLS 1.2 ciphers</b> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030) ECDH x25519 (eq. 3072 bits RSA) FS * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f) ECDH x25519 (eq. 3072 bits RSA) FS * TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x9f) DH 4096 bits FS * TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x9e) DH 4096 bits FS  # Rate Limits Rate limits are used to control the amount of traffic that is allowed to flow between the client and the server.<br> This is done to prevent abuse and ensure that the API is available to all users.<br> The rate limits are applied to ensure the stability and security of our API and are based on the number of requests made in a given time period.<br> If the rate limit is exceeded, the API will return a 429 status code and the request will be rejected.<br> Each API response includes headers providing real-time rate limit information: * **X-RateLimit-Limit**: The maximum number of requests that the consumer is permitted to make in a given time period. * **X-RateLimit-Remaining**: The number of requests remaining in the current rate limit window. * **X-RateLimit-Reset**: The remaining time in seconds until the rate limit window resets.  # Account Limit The account limit is a rate limit that is applied to the account as a whole.<br> This limit is applied to all requests made by the account, regardless of the client making the request.<br> The account limit is applied to ensure that the account does not exceed the maximum number of requests allowed in a given time period. Each account has an overall usage limit per hour. If the account limit is exceeded, the API will return a 429 status code and the request will be rejected.<br> Each API response includes headers providing real-time rate limit information: * **X-Account-Limit**: The maximum number of requests that the account is permitted to make in a given time period. * **X-Account-Remaining**: The number of requests remaining in the current rate limit window. * **X-Account-Reset**: The remaining time in seconds until the rate limit window resets.   # Authentication  We use a custom authentication method, you will need a apikey that you can find in your account settings. Below you will see a curl example to get your account information:     #!/bin/bash     curl -X GET 'https://api.egoiapp.com/my-account' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>'  Here you can see a curl Post example with authentication:     #!/bin/bash     curl -X POST 'http://api.egoiapp.com/tags' \\     -H 'accept: application/json' \\     -H 'Apikey: <YOUR_APY_KEY>' \\     -H 'Content-Type: application/json' \\     -d '{`name`:`Your custom tag`,`color`:`#FFFFFF`}'  # SDK Get started quickly with E-goi with our integration tools. Our SDK is a modern open source library that makes it easy to integrate your application with E-goi services.  * <a href='https://github.com/E-goi/sdk-java'>Java</a>  * <a href='https://github.com/E-goi/sdk-php'>PHP</a>  * <a href='https://github.com/E-goi/sdk-python'>Python</a>  * <a href='https://github.com/E-goi/sdk-ruby'>Ruby</a>  * <a href='https://github.com/E-goi/sdk-javascript'>Javascript</a>  * <a href='https://github.com/E-goi/sdk-csharp'>C#</a>  # Stream Limits Stream limits are security mesures we have to make sure our API have a fair use policy, for this reason, any request that creates or modifies data (**POST**, **PATCH** and **PUT**) is limited to a maximum of **20MB** of content length. If you arrive to this limit in one of your request, you'll receive a HTTP code **413 (Request Entity Too Large)** and the request will be ignored. To avoid this error in importation's requests, it's advised the request's division in batches that have each one less than 20MB.  # Timeouts Timeouts set a maximum waiting time on a request's response. Our API, sets a default timeout for each request and when breached, you'll receive an HTTP **408 (Request Timeout)** error code. You should take into consideration that response times can vary widely based on the complexity of the request, amount of data being analyzed, and the load on the system and workspace at the time of the query. When dealing with such errors, you should first attempt to reduce the complexity and amount of data under analysis, and only then, if problems are still occurring ask for support.  For all these reasons, the default timeout for each request is **10 Seconds** and any request that creates or modifies data (**POST**, **PATCH** and **PUT**) will have a timeout of **60 Seconds**. Specific timeouts may exist for specific requests, these can be found in the request's documentation.  # Callbacks A callback is an asynchronous API request that originates from the API server and is sent to the client in response to a previous request sent by that client.  The API will make a **POST** request to the address defined in the URL with the information regarding the event of interest and share data related to that event.  <a href='/usecases/callbacks/' target='_blank'>[Go to callbacks documentation]</a>  ***Note:*** Only http or https protocols are supported in the Url parameter.  <security-definitions/>
 
-The version of the OpenAPI document: 3.0.0
+The version of the OpenAPI document: V3
 
 Generated by: https://openapi-generator.tech
 OpenAPI Generator version: 6.2.1
@@ -16,6 +16,8 @@ require 'time'
 module EgoiRubyClient
   # Campaign schema
   class Campaign
+    attr_accessor :id
+
     attr_accessor :campaign_hash
 
     # Status of the campaign
@@ -49,6 +51,12 @@ module EgoiRubyClient
 
     attr_accessor :schedule_date
 
+    # Total number of processed messages
+    attr_accessor :processed_messages
+
+    # The automation id of the campaign
+    attr_accessor :automation_id
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -74,6 +82,7 @@ module EgoiRubyClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'campaign_hash' => :'campaign_hash',
         :'status' => :'status',
         :'thumbnail' => :'thumbnail',
@@ -87,7 +96,9 @@ module EgoiRubyClient
         :'updated' => :'updated',
         :'start_date' => :'start_date',
         :'end_date' => :'end_date',
-        :'schedule_date' => :'schedule_date'
+        :'schedule_date' => :'schedule_date',
+        :'processed_messages' => :'processed_messages',
+        :'automation_id' => :'automation_id'
       }
     end
 
@@ -99,6 +110,7 @@ module EgoiRubyClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'id' => :'Integer',
         :'campaign_hash' => :'String',
         :'status' => :'String',
         :'thumbnail' => :'String',
@@ -112,7 +124,9 @@ module EgoiRubyClient
         :'updated' => :'Time',
         :'start_date' => :'Time',
         :'end_date' => :'Time',
-        :'schedule_date' => :'CampaignScheduleDate'
+        :'schedule_date' => :'CampaignScheduleDate',
+        :'processed_messages' => :'Integer',
+        :'automation_id' => :'Integer'
       }
     end
 
@@ -136,6 +150,10 @@ module EgoiRubyClient
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.key?(:'campaign_hash')
         self.campaign_hash = attributes[:'campaign_hash']
@@ -192,12 +210,24 @@ module EgoiRubyClient
       if attributes.key?(:'schedule_date')
         self.schedule_date = attributes[:'schedule_date']
       end
+
+      if attributes.key?(:'processed_messages')
+        self.processed_messages = attributes[:'processed_messages']
+      end
+
+      if attributes.key?(:'automation_id')
+        self.automation_id = attributes[:'automation_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if !@id.nil? && @id < 1
+        invalid_properties.push('invalid value for "id", must be greater than or equal to 1.')
+      end
+
       pattern = Regexp.new(/[a-zA-Z0-9_-]*/)
       if !@campaign_hash.nil? && @campaign_hash !~ pattern
         invalid_properties.push("invalid value for \"campaign_hash\", must conform to the pattern #{pattern}.")
@@ -215,12 +245,17 @@ module EgoiRubyClient
         invalid_properties.push('invalid value for "group_id", must be greater than or equal to 1.')
       end
 
+      if !@processed_messages.nil? && @processed_messages < 0
+        invalid_properties.push('invalid value for "processed_messages", must be greater than or equal to 0.')
+      end
+
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if !@id.nil? && @id < 1
       return false if !@campaign_hash.nil? && @campaign_hash !~ Regexp.new(/[a-zA-Z0-9_-]*/)
       status_validator = EnumAttributeValidator.new('String', ["draft", "canceled", "queued", "paused", "sending", "sent"])
       return false unless status_validator.valid?(@status)
@@ -229,7 +264,18 @@ module EgoiRubyClient
       return false if !@list_id.nil? && @list_id < 1
       return false if !@created_by.nil? && @created_by < 1
       return false if !@group_id.nil? && @group_id < 1
+      return false if !@processed_messages.nil? && @processed_messages < 0
       true
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if !id.nil? && id < 1
+        fail ArgumentError, 'invalid value for "id", must be greater than or equal to 1.'
+      end
+
+      @id = id
     end
 
     # Custom attribute writer method with validation
@@ -293,11 +339,22 @@ module EgoiRubyClient
       @group_id = group_id
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] processed_messages Value to be assigned
+    def processed_messages=(processed_messages)
+      if !processed_messages.nil? && processed_messages < 0
+        fail ArgumentError, 'invalid value for "processed_messages", must be greater than or equal to 0.'
+      end
+
+      @processed_messages = processed_messages
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           campaign_hash == o.campaign_hash &&
           status == o.status &&
           thumbnail == o.thumbnail &&
@@ -311,7 +368,9 @@ module EgoiRubyClient
           updated == o.updated &&
           start_date == o.start_date &&
           end_date == o.end_date &&
-          schedule_date == o.schedule_date
+          schedule_date == o.schedule_date &&
+          processed_messages == o.processed_messages &&
+          automation_id == o.automation_id
     end
 
     # @see the `==` method
@@ -323,7 +382,7 @@ module EgoiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [campaign_hash, status, thumbnail, channel, internal_name, list_id, title, created_by, group_id, created, updated, start_date, end_date, schedule_date].hash
+      [id, campaign_hash, status, thumbnail, channel, internal_name, list_id, title, created_by, group_id, created, updated, start_date, end_date, schedule_date, processed_messages, automation_id].hash
     end
 
     # Builds the object from hash

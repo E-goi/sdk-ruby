@@ -35,7 +35,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::PushApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 campaign_push_send_request = EgoiRubyClient::CampaignPushScheduleRequest.new({app_id: 'app_id_example', segments: EgoiRubyClient::SendNone.new({type: 'none'})}) # CampaignPushSendRequest | Parameters for the 'send push' action
 
 begin
@@ -69,7 +69,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **campaign_push_send_request** | [**CampaignPushSendRequest**](CampaignPushSendRequest.md) | Parameters for the &#39;send push&#39; action |  |
 
 ### Return type
@@ -323,7 +323,7 @@ EgoiRubyClient.configure do |config|
 end
 
 api_instance = EgoiRubyClient::PushApi.new
-campaign_hash = 'campaign_hash_example' # String | ID of the Campaign
+campaign_hash = 'campaign_hash_example' # String | Hash of the Campaign
 push_campaign_patch_request = EgoiRubyClient::PushCampaignPatchRequest.new # PushCampaignPatchRequest | Parameters for the push campaign
 
 begin
@@ -357,7 +357,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **campaign_hash** | **String** | ID of the Campaign |  |
+| **campaign_hash** | **String** | Hash of the Campaign |  |
 | **push_campaign_patch_request** | [**PushCampaignPatchRequest**](PushCampaignPatchRequest.md) | Parameters for the push campaign |  |
 
 ### Return type

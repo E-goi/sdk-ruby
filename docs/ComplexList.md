@@ -4,7 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **language** | [**Language**](Language.md) |  | [default to &#39;en&#39;] |
+| **default_language** | [**Language**](Language.md) |  | [optional][default to &#39;en&#39;] |
+| **available_languages** | **Array&lt;String&gt;** | Array of available languages | [optional] |
 | **stats** | [**ComplexListAllOfStats**](ComplexListAllOfStats.md) |  | [optional] |
 | **list_id** | **Integer** |  | [optional][readonly] |
 | **internal_name** | **String** | Internal name of the list | [optional] |
@@ -20,7 +21,8 @@
 require 'egoi-ruby-client'
 
 instance = EgoiRubyClient::ComplexList.new(
-  language: null,
+  default_language: null,
+  available_languages: null,
   stats: null,
   list_id: 1,
   internal_name: Internal name,

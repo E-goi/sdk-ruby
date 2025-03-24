@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **base** | [**ContactBaseWithStatusFieldsSchemaBase**](ContactBaseWithStatusFieldsSchemaBase.md) |  | [optional] |
+| **base** | [**ContactBaseWithStatusFieldsBulkSchemaBase**](ContactBaseWithStatusFieldsBulkSchemaBase.md) |  | [optional] |
 
 ## Example
 
