@@ -715,7 +715,7 @@ end
 
 api_instance = EgoiRubyClient::EcommerceApi.new
 list_id = 56 # Integer | ID of the List
-import_orders_bulk_bulk_request = [EgoiRubyClient::ImportOrdersBulkBulkRequest.new({order_id: '100', revenue: 100, store_url: 'https://www.e-goi.com', date: 3.56, items: [EgoiRubyClient::ImportOrdersBulkBulkRequestItems.new({id: '100', name: 'Product 1'})]})] # Array<ImportOrdersBulkBulkRequest> | Parameters for the Orders
+import_orders_bulk_bulk_request = [EgoiRubyClient::ImportOrdersBulkBulkRequest.new({order_id: '100', contact_id: 'customer@e-goi.com', revenue: 100, store_url: 'https://www.e-goi.com', date: 3.56, items: [EgoiRubyClient::ImportOrdersBulkBulkRequestItems.new({id: '100', name: 'Product 1'})]})] # Array<ImportOrdersBulkBulkRequest> | Parameters for the Orders
 
 begin
   # Orders import bulk request

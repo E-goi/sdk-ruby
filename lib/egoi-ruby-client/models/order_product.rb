@@ -14,60 +14,82 @@ require 'date'
 require 'time'
 
 module EgoiRubyClient
-  # Create data
-  class CreateOrder
-    # Ecommerce cart total
-    attr_accessor :order_total
+  # Order Product schema
+  class OrderProduct
+    # The ID of the product in your store
+    attr_accessor :product_identifier
 
-    # Order ID is any non-empty unique string
-    attr_accessor :order_id
+    attr_accessor :catalog_id
 
-    # Cart ID that originated this order
-    attr_accessor :cart_id
+    # Name of the product
+    attr_accessor :name
 
-    # Date and hour of the order
-    attr_accessor :order_date
+    # Description of the product
+    attr_accessor :description
 
-    # Status of the order
-    attr_accessor :order_status
+    # Stock Keeping Unit
+    attr_accessor :sku
 
-    attr_accessor :contact
+    # Universal Product Code
+    attr_accessor :upc
 
-    # List of products
-    attr_accessor :products
+    # European Article Numbering
+    attr_accessor :ean
 
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
+    # Global Trade Item Number
+    attr_accessor :gtin
 
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
+    # Manufacturer Part Number
+    attr_accessor :mpn
 
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    # Link for the product
+    attr_accessor :link
+
+    # Link for the product image
+    attr_accessor :image_link
+
+    # Price of the product
+    attr_accessor :price
+
+    # Sale price of the product
+    attr_accessor :sale_price
+
+    # Brand of the product
+    attr_accessor :brand
+
+    # Quantity of the product
+    attr_accessor :quantity
+
+    # Array of product categories, using the character '>' as delimiter for the breadcrumb syntax
+    attr_accessor :categories
+
+    # Related products, array of 'product_identifier'
+    attr_accessor :related_products
+
+    # Custom attributes
+    attr_accessor :custom_attributes
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'order_total' => :'order_total',
-        :'order_id' => :'order_id',
-        :'cart_id' => :'cart_id',
-        :'order_date' => :'order_date',
-        :'order_status' => :'order_status',
-        :'contact' => :'contact',
-        :'products' => :'products'
+        :'product_identifier' => :'product_identifier',
+        :'catalog_id' => :'catalog_id',
+        :'name' => :'name',
+        :'description' => :'description',
+        :'sku' => :'sku',
+        :'upc' => :'upc',
+        :'ean' => :'ean',
+        :'gtin' => :'gtin',
+        :'mpn' => :'mpn',
+        :'link' => :'link',
+        :'image_link' => :'image_link',
+        :'price' => :'price',
+        :'sale_price' => :'sale_price',
+        :'brand' => :'brand',
+        :'quantity' => :'quantity',
+        :'categories' => :'categories',
+        :'related_products' => :'related_products',
+        :'custom_attributes' => :'custom_attributes'
       }
     end
 
@@ -79,13 +101,24 @@ module EgoiRubyClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'order_total' => :'Float',
-        :'order_id' => :'String',
-        :'cart_id' => :'String',
-        :'order_date' => :'Time',
-        :'order_status' => :'String',
-        :'contact' => :'Contact1',
-        :'products' => :'Array<OrderProduct>'
+        :'product_identifier' => :'String',
+        :'catalog_id' => :'Integer',
+        :'name' => :'String',
+        :'description' => :'String',
+        :'sku' => :'String',
+        :'upc' => :'String',
+        :'ean' => :'String',
+        :'gtin' => :'String',
+        :'mpn' => :'String',
+        :'link' => :'String',
+        :'image_link' => :'String',
+        :'price' => :'Float',
+        :'sale_price' => :'Float',
+        :'brand' => :'String',
+        :'quantity' => :'Float',
+        :'categories' => :'Array<String>',
+        :'related_products' => :'Array<String>',
+        :'custom_attributes' => :'Array<ProductCustomAttributes>'
       }
     end
 
@@ -99,46 +132,98 @@ module EgoiRubyClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `EgoiRubyClient::CreateOrder` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `EgoiRubyClient::OrderProduct` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `EgoiRubyClient::CreateOrder`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `EgoiRubyClient::OrderProduct`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'order_total')
-        self.order_total = attributes[:'order_total']
+      if attributes.key?(:'product_identifier')
+        self.product_identifier = attributes[:'product_identifier']
       end
 
-      if attributes.key?(:'order_id')
-        self.order_id = attributes[:'order_id']
+      if attributes.key?(:'catalog_id')
+        self.catalog_id = attributes[:'catalog_id']
       end
 
-      if attributes.key?(:'cart_id')
-        self.cart_id = attributes[:'cart_id']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.key?(:'order_date')
-        self.order_date = attributes[:'order_date']
+      if attributes.key?(:'description')
+        self.description = attributes[:'description']
       end
 
-      if attributes.key?(:'order_status')
-        self.order_status = attributes[:'order_status']
+      if attributes.key?(:'sku')
+        self.sku = attributes[:'sku']
+      end
+
+      if attributes.key?(:'upc')
+        self.upc = attributes[:'upc']
+      end
+
+      if attributes.key?(:'ean')
+        self.ean = attributes[:'ean']
+      end
+
+      if attributes.key?(:'gtin')
+        self.gtin = attributes[:'gtin']
+      end
+
+      if attributes.key?(:'mpn')
+        self.mpn = attributes[:'mpn']
+      end
+
+      if attributes.key?(:'link')
+        self.link = attributes[:'link']
+      end
+
+      if attributes.key?(:'image_link')
+        self.image_link = attributes[:'image_link']
+      end
+
+      if attributes.key?(:'price')
+        self.price = attributes[:'price']
       else
-        self.order_status = 'unknown'
+        self.price = 0
       end
 
-      if attributes.key?(:'contact')
-        self.contact = attributes[:'contact']
+      if attributes.key?(:'sale_price')
+        self.sale_price = attributes[:'sale_price']
+      else
+        self.sale_price = 0
       end
 
-      if attributes.key?(:'products')
-        if (value = attributes[:'products']).is_a?(Array)
-          self.products = value
+      if attributes.key?(:'brand')
+        self.brand = attributes[:'brand']
+      end
+
+      if attributes.key?(:'quantity')
+        self.quantity = attributes[:'quantity']
+      else
+        self.quantity = 0
+      end
+
+      if attributes.key?(:'categories')
+        if (value = attributes[:'categories']).is_a?(Array)
+          self.categories = value
+        end
+      end
+
+      if attributes.key?(:'related_products')
+        if (value = attributes[:'related_products']).is_a?(Array)
+          self.related_products = value
+        end
+      end
+
+      if attributes.key?(:'custom_attributes')
+        if (value = attributes[:'custom_attributes']).is_a?(Array)
+          self.custom_attributes = value
         end
       end
     end
@@ -147,8 +232,13 @@ module EgoiRubyClient
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @order_id.nil?
-        invalid_properties.push('invalid value for "order_id", order_id cannot be nil.')
+      pattern = Regexp.new(/[a-zA-Z0-9\_\-.]/)
+      if !@product_identifier.nil? && @product_identifier !~ pattern
+        invalid_properties.push("invalid value for \"product_identifier\", must conform to the pattern #{pattern}.")
+      end
+
+      if !@catalog_id.nil? && @catalog_id < 1
+        invalid_properties.push('invalid value for "catalog_id", must be greater than or equal to 1.')
       end
 
       invalid_properties
@@ -157,20 +247,30 @@ module EgoiRubyClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @order_id.nil?
-      order_status_validator = EnumAttributeValidator.new('String', ["created", "pending", "canceled", "completed", "unknown"])
-      return false unless order_status_validator.valid?(@order_status)
+      return false if !@product_identifier.nil? && @product_identifier !~ Regexp.new(/[a-zA-Z0-9\_\-.]/)
+      return false if !@catalog_id.nil? && @catalog_id < 1
       true
     end
 
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] order_status Object to be assigned
-    def order_status=(order_status)
-      validator = EnumAttributeValidator.new('String', ["created", "pending", "canceled", "completed", "unknown"])
-      unless validator.valid?(order_status)
-        fail ArgumentError, "invalid value for \"order_status\", must be one of #{validator.allowable_values}."
+    # Custom attribute writer method with validation
+    # @param [Object] product_identifier Value to be assigned
+    def product_identifier=(product_identifier)
+      pattern = Regexp.new(/[a-zA-Z0-9\_\-.]/)
+      if !product_identifier.nil? && product_identifier !~ pattern
+        fail ArgumentError, "invalid value for \"product_identifier\", must conform to the pattern #{pattern}."
       end
-      @order_status = order_status
+
+      @product_identifier = product_identifier
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] catalog_id Value to be assigned
+    def catalog_id=(catalog_id)
+      if !catalog_id.nil? && catalog_id < 1
+        fail ArgumentError, 'invalid value for "catalog_id", must be greater than or equal to 1.'
+      end
+
+      @catalog_id = catalog_id
     end
 
     # Checks equality by comparing each attribute.
@@ -178,13 +278,24 @@ module EgoiRubyClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          order_total == o.order_total &&
-          order_id == o.order_id &&
-          cart_id == o.cart_id &&
-          order_date == o.order_date &&
-          order_status == o.order_status &&
-          contact == o.contact &&
-          products == o.products
+          product_identifier == o.product_identifier &&
+          catalog_id == o.catalog_id &&
+          name == o.name &&
+          description == o.description &&
+          sku == o.sku &&
+          upc == o.upc &&
+          ean == o.ean &&
+          gtin == o.gtin &&
+          mpn == o.mpn &&
+          link == o.link &&
+          image_link == o.image_link &&
+          price == o.price &&
+          sale_price == o.sale_price &&
+          brand == o.brand &&
+          quantity == o.quantity &&
+          categories == o.categories &&
+          related_products == o.related_products &&
+          custom_attributes == o.custom_attributes
     end
 
     # @see the `==` method
@@ -196,7 +307,7 @@ module EgoiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [order_total, order_id, cart_id, order_date, order_status, contact, products].hash
+      [product_identifier, catalog_id, name, description, sku, upc, ean, gtin, mpn, link, image_link, price, sale_price, brand, quantity, categories, related_products, custom_attributes].hash
     end
 
     # Builds the object from hash

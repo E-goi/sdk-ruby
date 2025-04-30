@@ -19,10 +19,13 @@ module EgoiRubyClient
     # Ecommerce order id
     attr_accessor :order_id
 
+    # Status of the order
+    attr_accessor :order_status
+
     # Contact ID is any non-empty unique string identifying the user (such as an email address or e-goi uid)
     attr_accessor :contact_id
 
-    # Ecommerce order revenue
+    # Ecommerce order revenue. Must be greater than 0.
     attr_accessor :revenue
 
     # Ecommerce store url
@@ -34,10 +37,33 @@ module EgoiRubyClient
     # Array of ordered products
     attr_accessor :items
 
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'order_id' => :'order_id',
+        :'order_status' => :'order_status',
         :'contact_id' => :'contact_id',
         :'revenue' => :'revenue',
         :'store_url' => :'store_url',
@@ -55,6 +81,7 @@ module EgoiRubyClient
     def self.openapi_types
       {
         :'order_id' => :'String',
+        :'order_status' => :'String',
         :'contact_id' => :'String',
         :'revenue' => :'Float',
         :'store_url' => :'String',
@@ -88,6 +115,12 @@ module EgoiRubyClient
         self.order_id = attributes[:'order_id']
       end
 
+      if attributes.key?(:'order_status')
+        self.order_status = attributes[:'order_status']
+      else
+        self.order_status = 'unknown'
+      end
+
       if attributes.key?(:'contact_id')
         self.contact_id = attributes[:'contact_id']
       end
@@ -119,6 +152,10 @@ module EgoiRubyClient
         invalid_properties.push('invalid value for "order_id", order_id cannot be nil.')
       end
 
+      if @contact_id.nil?
+        invalid_properties.push('invalid value for "contact_id", contact_id cannot be nil.')
+      end
+
       if @revenue.nil?
         invalid_properties.push('invalid value for "revenue", revenue cannot be nil.')
       end
@@ -146,12 +183,25 @@ module EgoiRubyClient
     # @return true if the model is valid
     def valid?
       return false if @order_id.nil?
+      order_status_validator = EnumAttributeValidator.new('String', ["created", "pending", "canceled", "completed", "unknown"])
+      return false unless order_status_validator.valid?(@order_status)
+      return false if @contact_id.nil?
       return false if @revenue.nil?
       return false if @revenue < 0
       return false if @store_url.nil?
       return false if @date.nil?
       return false if @items.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] order_status Object to be assigned
+    def order_status=(order_status)
+      validator = EnumAttributeValidator.new('String', ["created", "pending", "canceled", "completed", "unknown"])
+      unless validator.valid?(order_status)
+        fail ArgumentError, "invalid value for \"order_status\", must be one of #{validator.allowable_values}."
+      end
+      @order_status = order_status
     end
 
     # Custom attribute writer method with validation
@@ -174,6 +224,7 @@ module EgoiRubyClient
       return true if self.equal?(o)
       self.class == o.class &&
           order_id == o.order_id &&
+          order_status == o.order_status &&
           contact_id == o.contact_id &&
           revenue == o.revenue &&
           store_url == o.store_url &&
@@ -190,7 +241,7 @@ module EgoiRubyClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [order_id, contact_id, revenue, store_url, date, items].hash
+      [order_id, order_status, contact_id, revenue, store_url, date, items].hash
     end
 
     # Builds the object from hash
